@@ -1,4 +1,4 @@
 class CarSerializer < ActiveModel::Serializer
-  attributes :id, :make, :model, :year, :color, :miles, :type, :drive, :country, :img_url
-  has_one :user
+  attributes :id, :make, :model, :year, :color, :miles, :category, :drive, :country, :img_url
+
 end

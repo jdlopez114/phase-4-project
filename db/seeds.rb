@@ -12,10 +12,10 @@ Car.create(
     year: 2023,
     color: "Reflex Silver Metallic",
     miles: 1200,
-    type: "Hatchback",
+    category: "Hatchback",
     drive: "Manual", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Volkswagen-Golf_GTI-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Volkswagen-Golf_GTI-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -24,10 +24,10 @@ Car.create(
     year: 2023,
     color: "Florett Silver Metallic",
     miles: 900,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Audi-A3-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Audi-A3-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -36,10 +36,10 @@ Car.create(
     year: 2023,
     color: "Brooklyn Grey Metallic",
     miles: 3211,
-    type: "Sedan",
-    drive: "Automatic", 
+    category: "Sedan",
+    drive: "Manual", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-BMW-7_Series-gray-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-BMW-7_Series-gray-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -48,10 +48,10 @@ Car.create(
     year: 2023,
     color: "Pyrite Silver Metallic",
     miles: 9520,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Volkswagen-Jetta-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Volkswagen-Jetta-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -60,10 +60,10 @@ Car.create(
     year: 2023,
     color: "Moonstone Gray",
     miles: 3255,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Volkswagen-Arteon-gray-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Volkswagen-Arteon-gray-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -72,10 +72,10 @@ Car.create(
     year: 2023,
     color: "Mojave Silver Metallic",
     miles: 5600,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Mercedes-Benz-C-Class-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Mercedes-Benz-C-Class-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -84,10 +84,10 @@ Car.create(
     year: 2023,
     color: "Dravit Grey Metallic",
     miles: 1200,
-    type: "Hatchback",
+    category: "Hatchback",
     drive: "Manual", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-BMW-4_Series-gray-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-BMW-4_Series-gray-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -96,10 +96,10 @@ Car.create(
     year: 2023,
     color: "Florett Silver Metallic",
     miles: 902,
-    type: "Wagon",
+    category: "Wagon",
     drive: "Manual", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Audi-A6_allroad-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Audi-A6_allroad-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -108,10 +108,10 @@ Car.create(
     year: 2023,
     color: "Brooklyn Grey Metallic",
     miles: 8531,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-BMW-2_Series-gray-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-BMW-2_Series-gray-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -120,10 +120,10 @@ Car.create(
     year: 2023,
     color: "Rock Gray",
     miles: 3251,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Audi-A5-gray-full_color-driver_side_front_quarter.png"
+    img_url: "..public/car_images/2023-Audi-A5-gray-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -132,10 +132,10 @@ Car.create(
     year: 2023,
     color: "Florett Silver Metallic",
     miles: 1200,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Manual", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Audi-S6-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Audi-S6-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -144,10 +144,10 @@ Car.create(
     year: 2023,
     color: "Ibis White",
     miles: 6533,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Audi-A4-white-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Audi-A4-white-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -156,10 +156,10 @@ Car.create(
     year: 2023,
     color: "Iridium Silver",
     miles: 4100,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2022-Mercedes-Benz-A-Class-silver-full_color-driver_side_front_quarter-1.png"
+    img_url: "../public/car_images/2022-Mercedes-Benz-A-Class-silver-full_color-driver_side_front_quarter-1.png"
 )
 
 Car.create(
@@ -168,10 +168,10 @@ Car.create(
     year: 2023,
     color: "Brooklyn Gray Metallic",
     miles: 1200,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-BMW-i4-gray-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-BMW-i4-gray-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -180,7 +180,7 @@ Car.create(
     year: 2023,
     color: "Brooklyn Grey Metallic",
     miles: 2103,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
     img_url: "/public/car_images/2023-BMW-3_Series-gray-full_color-driver_side_front_quarter.png"
@@ -192,10 +192,10 @@ Car.create(
     year: 2023,
     color: "Iridium Silver",
     miles: 5200,
-    type: "Sedan",
-    drive: "Automatic", 
+    category: "Sedan",
+    drive: "Manual", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Mercedes-Benz-CLA-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Mercedes-Benz-CLA-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -204,10 +204,10 @@ Car.create(
     year: 2023,
     color: "Iridium Silver",
     miles: 1620,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Mercedes-Benz-CLS-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Mercedes-Benz-CLS-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -216,10 +216,10 @@ Car.create(
     year: 2023,
     color: "High Tech Silver",
     miles: 2510,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Mercedes-Benz-EQS_Sedan-silver-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Mercedes-Benz-EQS_Sedan-silver-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -228,10 +228,10 @@ Car.create(
     year: 2023,
     color: "Brooklyn Gray Metallic",
     miles: 962,
-    type: "Hatchback",
-    drive: "Automatic", 
+    category: "Hatchback",
+    drive: "Manual", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-BMW-4_Series-gray-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-BMW-4_Series-gray-full_color-driver_side_front_quarter.png"
 )
 
 Car.create(
@@ -240,10 +240,10 @@ Car.create(
     year: 2023,
     color: "Daytona Gray",
     miles: 996,
-    type: "Sedan",
+    category: "Sedan",
     drive: "Automatic", 
     country: "Germany", 
-    img_url: "/public/car_images/2023-Audi-RS_3-gray-full_color-driver_side_front_quarter.png"
+    img_url: "../public/car_images/2023-Audi-RS_3-gray-full_color-driver_side_front_quarter.png"
 )
 
 puts "✅ Done seeding!"
