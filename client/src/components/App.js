@@ -28,11 +28,11 @@ useEffect(() => {
       <Routes>
           <Route exact path="/" element={ <MainPage displayData={ carList }/> } />
           <Route exact path="/cars/" element={ <MainPage displayData={ carList }/> } />
-          {/* <Route exact path="/cars/:id" element={ <CarPage 
+          <Route exact path="/cars/:id" element={ <CarPage 
                                                 carList={ carList } 
                                                 setCarList={ setCarList }
                                               /> 
-                                            }/> */}
+                                            }/>
       </Routes>
     </div>
   );
