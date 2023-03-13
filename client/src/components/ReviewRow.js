@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReviewRow = ({ model }) => {
+const ReviewRow = ({ review }) => {
 
     // const [ formDataEdit, setFormDataEdit ]  = useState({ 
     //     "user_name" : review.user_name,
@@ -15,10 +15,11 @@ const ReviewRow = ({ model }) => {
     // }
     
       return (
-        <div className='review-row'key={ model.id}>
-          <div className='review-container' key={ model.id }>
-            <h3>{ model}</h3>
-            <h4>{ model }</h4>
+        <div className='car-card'key={ review.id}>
+          <div className='review-container' key={ review.id }>
+            <h3>{ review.reviewer.username} : </h3>
+            <h3>{ review.comments }</h3>
+      
           </div>
           <div className='icons'> 
             {/* <TiEdit

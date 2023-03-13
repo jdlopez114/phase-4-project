@@ -10,21 +10,10 @@ class CarsController < ApplicationController
     render json: car
   end
 
-  def create
-    car = Car.create( car_params )
-    render json: car
-  end
-
   def update
     car = Car.find( params[:id] )
     car.update!( car_params )
     render json: car
-  end
-
-  def destroy
-    car = Car.find( params[:id] )
-    car.destroy 
-    head :no_content 
   end
 
   private

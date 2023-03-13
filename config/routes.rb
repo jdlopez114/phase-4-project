@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
  
+
+  resources :cars, only: [:index, :show, :update]
   resources :reviews
-  resources :cars
-  resources :users
 
   # post "/login", to: "sessions#create"
   # delete "/logout", to: "sessions#destroy"
