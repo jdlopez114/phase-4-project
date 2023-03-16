@@ -4,10 +4,21 @@ import Header from "./Header";
 import MainPage from "./MainPage";
 import CarPage from "./CarPage";
 import NavBar from "./NavBar";
+import LoginScreen from "./LoginScreen";
 
 function App() {
 
+const [ currentUser, setCurrentUser ] = useState(null);
 const [ carList, setCarList] = useState([])
+
+useEffect(() => {
+  fetch("http://127.0.0.1:9393/auth").then((res) => {
+    if (res.ok) {
+      res.json().then((user) => setCurrentUser(user));
+    }
+  });
+}, []);
+
 
 useEffect(() => {
   fetch(`http://127.0.0.1:9393/cars`)
@@ -18,6 +29,11 @@ useEffect(() => {
   .catch(error => (console.log( error )));
 }, [])
 
+// function handleLogout() {
+//   setUser(null);
+// }
+
+if (!currentUser) return <LoginScreen setCurrentUser={ setCurrentUser } />;
 
   return (
     <div className="review-app">
@@ -26,8 +42,8 @@ useEffect(() => {
       <NavBar/>
       <br />
       <Routes>
-          <Route exact path="/" element={ <MainPage displayData={ carList }/> } />
-          <Route exact path="/cars/" element={ <MainPage displayData={ carList }/> } />
+          <Route exact path="/" element={ <MainPage displayData={ carList } currentUser={ currentUser } setCurrentUser={ setCurrentUser }/> } />
+          <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser } setCurrentUser={ setCurrentUser }/> } />
           <Route exact path="/cars/:id" element={ <CarPage 
                                                 carList={ carList } 
                                                 setCarList={ setCarList }

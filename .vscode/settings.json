@@ -45,10 +45,6 @@
             "group": "Default"
         },
         {
-            "filePath": "client/src/components/PageCollection.js",
-            "group": "Default"
-        },
-        {
             "filePath": "client/src/components/ReviewRow.js",
             "group": "Default"
         },
@@ -74,6 +70,22 @@
         },
         {
             "filePath": "app/serializers/user_serializer.rb",
+            "group": "Default"
+        },
+        {
+            "filePath": "client/src/components/LoginForm.js",
+            "group": "Default"
+        },
+        {
+            "filePath": "client/src/components/LoginScreen.js",
+            "group": "Default"
+        },
+        {
+            "filePath": "db/seeds.rb",
+            "group": "Default"
+        },
+        {
+            "filePath": "app/controllers/application_controller.rb",
             "group": "Default"
         }
     ]

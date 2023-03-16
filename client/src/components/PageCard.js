@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function PageCard({ displayData }) {
 
-  const { id, make, model, year, color, miles, category, drive, country, img_url } = displayData
+  // const { id, make, model, year, color, miles, category, drive, country, img_url } = displayData
+  const { id, make, model, img_url } = displayData
   
   return (
     <Link to={ `/cars/${ id }` }>

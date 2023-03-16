@@ -1,11 +1,16 @@
 import React from 'react';
-import PageCollection from "./PageCollection";
+import PageCard from "./PageCard";
 
-function MainPage({ displayData }) {
+function MainPage({ displayData, currentUser, setCurrentUser }) {
+
+  console.log("display data:", displayData, "current user:", currentUser)
 
   return (
-    <div>
-      <PageCollection displayData={ displayData }/> 
+
+    <div className='car-list'>
+        { displayData.map( car => {
+            return <PageCard key={ car.id } displayData={ car }/>
+        })}    
     </div>
   )
 }

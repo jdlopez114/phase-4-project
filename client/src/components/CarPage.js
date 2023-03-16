@@ -1,18 +1,16 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+// import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ReviewRow from './ReviewRow';
 
-
-function CarPage({ carList, setCarList} ) {         
+function CarPage({ carList, setCarList }) {         
 
     const { id } = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const car = carList.find(c => c.id === parseInt(id));
 
-    console.log(car)
-
     return(
-        <> 
+        <div className='car-review-card'> 
             <div  className='car-card' >
                 <img className="car-img" src={ car?.img_url} alt="Not found."/>
                 <h3> { car?.year } { car?.make } { car?.model }</h3>
@@ -24,7 +22,7 @@ function CarPage({ carList, setCarList} ) {
                                 // handleDeleteReview={ handleDeleteReview } 
                                 // handleUpdateReview={ handleUpdateReview } 
                             />}) }
-        </>
+        </div>
     )
 }   
 export default CarPage;
