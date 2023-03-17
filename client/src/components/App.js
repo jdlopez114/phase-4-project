@@ -12,13 +12,12 @@ const [ currentUser, setCurrentUser ] = useState(null);
 const [ carList, setCarList] = useState([])
 
 useEffect(() => {
-  fetch("http://127.0.0.1:9393/auth").then((res) => {
+  fetch("/auth").then((res) => {
     if (res.ok) {
       res.json().then((user) => setCurrentUser(user));
     }
   });
 }, []);
-
 
 useEffect(() => {
   fetch(`http://127.0.0.1:9393/cars`)

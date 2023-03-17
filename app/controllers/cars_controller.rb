@@ -2,23 +2,12 @@ class CarsController < ApplicationController
 
   def index
     cars = Car.all
-    render json: cars
+    render json: cars, status: :ok
   end
 
   def show
     car = Car.find( params[:id] )
-    render json: car
+    render json: car, status: :ok
   end
 
-  def update
-    car = Car.find( params[:id] )
-    car.update!( car_params )
-    render json: car
-  end
-
-  private
-    # Only allow a list of trusted parameters through.
-    def car_params
-      params.require(:car).permit(:make, :model, :year, :color, :miles, :type, :drive, :country, :img_url)
-    end
 end

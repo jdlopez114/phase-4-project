@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm({ setCurrentUser }) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");   
 
+    const navigate = useNavigate();
+
     function handleSubmit(e) {
         e.preventDefault();
-        const user = {
-            username, 
-            password
-        }
-        fetch("http://127.0.0.1:9393/login", {
+
+        fetch("/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            'Accept': 'application/json'
           },
-          body: JSON.stringify(user),
+          body: JSON.stringify({ username, password }),
         })
           .then( res => {
             if (res.ok) {
-                res.json().then(setCurrentUser);
-            } else {
-                res.json().then(err => console.log("error:", err));
-            }
-          });
+                res.json().then( user => setCurrentUser(user));
+            } 
+          }).then(() => navigate(`/cars`))
       }
 
 
