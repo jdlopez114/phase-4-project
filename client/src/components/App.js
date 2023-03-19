@@ -20,7 +20,7 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  fetch(`http://127.0.0.1:9393/cars`)
+  fetch(`/cars`)
   .then(r => r.json())
   .then(data => {
     setCarList(data)
@@ -41,8 +41,8 @@ if (!currentUser) return <LoginScreen setCurrentUser={ setCurrentUser } />;
       <NavBar/>
       <br />
       <Routes>
-          <Route exact path="/" element={ <MainPage displayData={ carList } currentUser={ currentUser } setCurrentUser={ setCurrentUser }/> } />
-          <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser } setCurrentUser={ setCurrentUser }/> } />
+          <Route exact path="/" element={ <MainPage displayData={ carList } currentUser={ currentUser } /> } />
+          <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser } /> } />
           <Route exact path="/cars/:id" element={ <CarPage 
                                                 carList={ carList } 
                                                 setCarList={ setCarList }
