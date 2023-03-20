@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function LoginForm({ setCurrentUser }) {
+function SignUpForm({ setCurrentUser }) {
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");   
-  const navigate = useNavigate();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");   
+    const navigate = useNavigate();
 
-  function handleSubmit(e) {
-      e.preventDefault();
-      fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({ username, password }),
-      })
-        .then( res => {
-          if (res.ok) {
-              res.json().then( user => setCurrentUser(user));
-          } 
-        }).then(() => navigate(`/cars`))
+    function handleSubmit(e) {
+        e.preventDefault();
+        fetch("/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ username, password }),
+        }).then( res => {
+            if (res.ok) {
+                res.json().then( user => setCurrentUser(user));
+            } 
+          }).then(() => navigate(`/cars`))
     }
 
-  return (
+    return (
     <div className='review-form-section' >
         <form noValidate autoComplete="off" className='review-form' onSubmit={handleSubmit} >
             <input
@@ -34,7 +33,6 @@ function LoginForm({ setCurrentUser }) {
                 value={ username }
                 onChange={(e) => setUsername(e.target.value)}
                 name='user_name'
-              
             />
             <input
                 className='review-form-input'
@@ -44,7 +42,7 @@ function LoginForm({ setCurrentUser }) {
                 name='password'
             />
             <div >
-                <button className='login-button'>Login</button>
+                <button className='login-button'>Sign Up!</button>
             </div>
             <div>
             {/* {`${errors}`} */}
@@ -54,4 +52,4 @@ function LoginForm({ setCurrentUser }) {
   )
 }
 
-export default LoginForm;
+export default SignUpForm;
