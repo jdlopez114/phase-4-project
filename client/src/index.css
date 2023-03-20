@@ -14,7 +14,6 @@ code {
 
 .car-card {
   background: linear-gradient(0deg, rgb(243, 248, 249), rgb(209, 221, 221));
-  border-color: #b393d3;
   border-radius: 20px;
   padding: 10px;
   margin:10px;
@@ -38,12 +37,19 @@ code {
 
 .car-review {
   background: linear-gradient(0deg, rgb(243, 248, 249), rgb(209, 221, 221));
-  border-color: #b393d3;
   border-radius: 20px;
-  padding: 10px;
+  padding: 5px;
   margin:10px;
   text-align: center;
   box-shadow: 0 3px 15px rgba(0,0,0,0.9);
+  width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.car-review-page {
+  margin: 10px;
+  text-align: center;
   width: 460px;
   margin-left: auto;
   margin-right: auto;
@@ -62,4 +68,39 @@ code {
 	height: 300px;
 	object-fit: cover;
 	border-radius: 10px;
+}
+
+.review-form {
+  margin-top: 50px;;
+	margin-bottom: 50px;
+	background: transparent;
+	width: 100%;
+	display: inline-block;
+}
+
+.review-form-input {
+	padding: 14px 32px 14px 16px;
+	border-radius: 5px;
+	border: 1px solid #4169E1;
+	outline: 0;
+	width: 460px;
+	background-color: transparent;
+	margin: auto;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.add-review-button {
+	padding: 12px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+	background: #4169E1;
+	color: #fff;
+	text-transform: capitalize;
+	max-width: 200px;
+	width: 100%;
+	display: inline-block;
+	margin: auto;
 }

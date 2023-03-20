@@ -87,6 +87,14 @@
         {
             "filePath": "app/controllers/application_controller.rb",
             "group": "Default"
+        },
+        {
+            "filePath": "client/src/components/ReviewForm.js",
+            "group": "Default"
+        },
+        {
+            "filePath": "client/src/index.css",
+            "group": "Default"
         }
     ]
 }

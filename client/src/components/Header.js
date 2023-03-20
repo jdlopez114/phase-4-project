@@ -1,10 +1,12 @@
 import React from 'react';
 
-function Header() { 
+function Header({ currentUser }) { 
+
+  const { username } = currentUser
 
   return (
     <header>
-        <h1><strong>RENT A CAR</strong></h1>
+        <h1><strong>Welcome { username }</strong></h1>
     </header>
   )
 }

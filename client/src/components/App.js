@@ -28,17 +28,13 @@ useEffect(() => {
   .catch(error => (console.log( error )));
 }, [])
 
-// function handleLogout() {
-//   setUser(null);
-// }
-
 if (!currentUser) return <LoginScreen setCurrentUser={ setCurrentUser } />;
 
   return (
     <div className="review-app">
-      <Header/>
+      <Header currentUser={ currentUser} />
       <br />
-      <NavBar/>
+      <NavBar setCurrentUser={ setCurrentUser }/>
       <br />
       <Routes>
           <Route exact path="/" element={ <MainPage displayData={ carList } currentUser={ currentUser } /> } />
@@ -46,6 +42,7 @@ if (!currentUser) return <LoginScreen setCurrentUser={ setCurrentUser } />;
           <Route exact path="/cars/:id" element={ <CarPage 
                                                 carList={ carList } 
                                                 setCarList={ setCarList }
+                                                currentUser={ currentUser }
                                               /> 
                                             }/>
       </Routes>

@@ -28,8 +28,7 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:comments, :user_id, :car_id)
+      params.permit(:comments, :user_id, :car_id)
     end
 end
