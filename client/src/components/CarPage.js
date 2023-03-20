@@ -3,10 +3,46 @@ import { useParams } from 'react-router-dom';
 import ReviewForm from './ReviewForm';
 import ReviewRow from './ReviewRow';
 
-function CarPage({ carList, currentUser, setCarList }) {         
+function CarPage({ carList, setCarList, currentUser }) {         
 
     const { id } = useParams();
     const car = carList.find(c => c.id === parseInt(id));
+
+    function handleDeleteReview( id ){
+        fetch(`/reviews/${id}`, {
+          method: "DELETE",
+          headers: { 
+            "Content-Type" : "application/json"
+          }
+        })
+        .then(() => removeReview( id ))
+        .catch(error => ( console.log( error )) )
+      }
+      
+      function removeReview( id ) {
+        const updatedCarReviews = { ...car, reviews: [ ...(car.reviews.filter( rev => rev.id !== id )) ]}
+        setCarList( carList.map( c => c.id === updatedCarReviews.id ? updatedCarReviews : c ))
+      }
+    
+    //   function handleUpdateReview( editedReview ){
+    //     fetch(`/reviews/${editedReview.id}`, {
+    //       method: "PATCH",
+    //       headers:{
+    //         "Content-Type" : "application/json"
+    //       },
+    //       body: JSON.stringify( editedReview )
+    //     })
+    //     .then(r => r.json())
+    //     .then (data => 
+    //         updateReview( data )
+    //         )
+    //     .catch(error => (console.log(error)))
+    //   }
+    
+    //   function updateReview(editedRev){
+    //     const updatedAnimeObject = { ...anime, reviews: [ editedRev, ...anime.reviews.filter(rev => rev.id !== editedRev.id) ]}
+    //     setAnimeList( animeList.map( ani => ani.id === updatedAnimeObject.id ? updatedAnimeObject : ani ))
+    //   }
 
     return(
         <div className='car-review-page'> 
@@ -20,7 +56,7 @@ function CarPage({ carList, currentUser, setCarList }) {
             <div className='review-section' > 
             <ReviewForm car={ car } currentUser={ currentUser } carList={carList} setCarList={setCarList}/> 
                 { car?.reviews.map(rev => { return <ReviewRow key={ rev.id } review={ rev }
-                                // handleDeleteReview={ handleDeleteReview } 
+                                handleDeleteReview={ handleDeleteReview } 
                                 // handleUpdateReview={ handleUpdateReview } 
                             />}) }
             </div>

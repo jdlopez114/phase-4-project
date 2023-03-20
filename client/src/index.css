@@ -104,3 +104,9 @@ code {
 	display: inline-block;
 	margin: auto;
 }
+
+.icons {
+	display: flex;
+	font-size: 24px;
+	cursor: pointer;
+}
