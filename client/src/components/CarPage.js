@@ -24,25 +24,25 @@ function CarPage({ carList, setCarList, currentUser }) {
         setCarList( carList.map( c => c.id === updatedCarReviews.id ? updatedCarReviews : c ))
       }
     
-    //   function handleUpdateReview( editedReview ){
-    //     fetch(`/reviews/${editedReview.id}`, {
-    //       method: "PATCH",
-    //       headers:{
-    //         "Content-Type" : "application/json"
-    //       },
-    //       body: JSON.stringify( editedReview )
-    //     })
-    //     .then(r => r.json())
-    //     .then (data => 
-    //         updateReview( data )
-    //         )
-    //     .catch(error => (console.log(error)))
-    //   }
+      function handleUpdateReview( editedReview ){
+        fetch(`/reviews/${editedReview.id}`, {
+          method: "PATCH",
+          headers:{
+            "Content-Type" : "application/json"
+          },
+          body: JSON.stringify( editedReview )
+        })
+        .then(r => r.json())
+        .then (data => 
+            updateReview( data )
+            )
+        .catch(error => (console.log(error)))
+      }
     
-    //   function updateReview(editedRev){
-    //     const updatedAnimeObject = { ...anime, reviews: [ editedRev, ...anime.reviews.filter(rev => rev.id !== editedRev.id) ]}
-    //     setAnimeList( animeList.map( ani => ani.id === updatedAnimeObject.id ? updatedAnimeObject : ani ))
-    //   }
+      function updateReview(editedRev){
+        const updatedCarObject = { ...car, reviews: [ editedRev, ...car.reviews.filter(rev => rev.id !== editedRev.id) ]}
+        setCarList( carList.map( c => c.id === updatedCarObject.id ? updatedCarObject : c ))
+      }
 
     return(
         <div className='car-review-page'> 
@@ -57,7 +57,7 @@ function CarPage({ carList, setCarList, currentUser }) {
             <ReviewForm car={ car } currentUser={ currentUser } carList={carList} setCarList={setCarList}/> 
                 { car?.reviews.map(rev => { return <ReviewRow key={ rev.id } review={ rev }
                                 handleDeleteReview={ handleDeleteReview } 
-                                // handleUpdateReview={ handleUpdateReview } 
+                                handleUpdateReview={ handleUpdateReview } 
                             />}) }
             </div>
         </div>
