@@ -4,7 +4,7 @@ import SignUpForm from "./SignUpForm";
 
 function LoginScreen({ setCurrentUser }) {
 
-  const [showSignUp, setShowSignUp] = useState(true);
+  const [ showSignUp, setShowSignUp ] = useState( true );
 
   return (
       <div className="login-form">
@@ -13,7 +13,7 @@ function LoginScreen({ setCurrentUser }) {
           <> 
           Log into your account!
             <LoginForm setCurrentUser={ setCurrentUser } />
-            <button onClick={() => setShowSignUp(false)}>
+            <button onClick={ () => setShowSignUp( false ) }>
             Sign Up
             </button>
           </>
@@ -21,7 +21,7 @@ function LoginScreen({ setCurrentUser }) {
           <> 
             Don't have an account? Sign up now!
             <SignUpForm setCurrentUser={ setCurrentUser } /> 
-            <button onClick={() => setShowSignUp(true)}>
+            <button onClick={ () => setShowSignUp(true) }>
             Log In
             </button>
           </>

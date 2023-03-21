@@ -8,7 +8,7 @@ function PageCard({ displayData }) {
   return (
     <Link to={ `/cars/${ id }` }>
       <div  className='car-card' >
-        <img className="car-img" src={ img_url} alt="Not found."/>
+        <img className="car-img" src={ img_url } alt="Not found."/>
         <h3>{ make } { model }</h3>
       </div>
     </Link>

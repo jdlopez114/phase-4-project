@@ -1,7 +1,7 @@
 import React from 'react';
 import PageCard from "./PageCard";
 
-function MainPage({ displayData, currentUser }) {
+function MainPage({ displayData }) {
 
   return (
 

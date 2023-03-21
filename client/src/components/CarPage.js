@@ -6,10 +6,10 @@ import ReviewRow from './ReviewRow';
 function CarPage({ carList, setCarList, currentUser }) {         
 
     const { id } = useParams();
-    const car = carList.find(c => c.id === parseInt(id));
+    const car = carList.find( c => c.id === parseInt( id ) );
 
     function handleDeleteReview( id ){
-        fetch(`/reviews/${id}`, {
+        fetch(`/reviews/${ id }`, {
           method: "DELETE",
           headers: { 
             "Content-Type" : "application/json"
@@ -25,22 +25,20 @@ function CarPage({ carList, setCarList, currentUser }) {
       }
     
       function handleUpdateReview( editedReview ){
-        fetch(`/reviews/${editedReview.id}`, {
+        fetch(`/reviews/${ editedReview.id }`, {
           method: "PATCH",
           headers:{
             "Content-Type" : "application/json"
           },
           body: JSON.stringify( editedReview )
         })
-        .then(r => r.json())
-        .then (data => 
-            updateReview( data )
-            )
-        .catch(error => (console.log(error)))
+        .then( r => r.json() )
+        .then ( data => updateReview( data ))
+        .catch( error => (console.log( error )))
       }
     
-      function updateReview(editedRev){
-        const updatedCarObject = { ...car, reviews: [ editedRev, ...car.reviews.filter(rev => rev.id !== editedRev.id) ]}
+      function updateReview( editedRev ){
+        const updatedCarObject = { ...car, reviews: [ editedRev, ...car.reviews.filter( rev => rev.id !== editedRev.id ) ]}
         setCarList( carList.map( c => c.id === updatedCarObject.id ? updatedCarObject : c ))
       }
 
@@ -58,9 +56,11 @@ function CarPage({ carList, setCarList, currentUser }) {
                 { car?.reviews.map(rev => { return <ReviewRow key={ rev.id } review={ rev }
                                 handleDeleteReview={ handleDeleteReview } 
                                 handleUpdateReview={ handleUpdateReview } 
+                                currentUser={ currentUser }
                             />}) }
             </div>
         </div>
     )
 }   
+
 export default CarPage;

@@ -8,37 +8,37 @@ import LoginScreen from "./LoginScreen";
 
 function App() {
 
-const [ currentUser, setCurrentUser ] = useState(null);
-const [ carList, setCarList] = useState([])
+  const [ currentUser, setCurrentUser ] = useState(null);
+  const [ carList, setCarList] = useState([])
 
-useEffect(() => {
-  fetch("/auth").then((res) => {
-    if (res.ok) {
-      res.json().then((user) => setCurrentUser(user));
-    }
-  });
-}, []);
+  useEffect(() => {
+    fetch("/auth").then(( r ) => {
+      if ( r.ok ) {
+        r.json().then(( user ) => setCurrentUser( user ));
+      }
+    });
+  }, []);
 
-useEffect(() => {
-  fetch(`/cars`)
-  .then(r => r.json())
-  .then(data => {
-    setCarList(data)
-  })
-  .catch(error => (console.log( error )));
-}, [])
+  useEffect(() => {
+    fetch(`/cars`)
+    .then(r => r.json())
+    .then(data => {
+      setCarList( data )
+    })
+    .catch(error => ( console.log( error )) );
+  }, [])
 
-if (!currentUser) return <LoginScreen setCurrentUser={ setCurrentUser } />;
+  if ( !currentUser ) return <LoginScreen setCurrentUser={ setCurrentUser } />;
 
   return (
     <div className="review-app">
-      <Header currentUser={ currentUser} />
+      <Header currentUser={ currentUser }/>
       <br />
       <NavBar setCurrentUser={ setCurrentUser }/>
       <br />
       <Routes>
-          <Route exact path="/" element={ <MainPage displayData={ carList } currentUser={ currentUser } /> } />
-          <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser } /> } />
+          <Route exact path="/" element={ <MainPage displayData={ carList }/> }/>
+          <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser }/> }/>
           <Route exact path="/cars/:id" element={ <CarPage 
                                                 carList={ carList } 
                                                 setCarList={ setCarList }

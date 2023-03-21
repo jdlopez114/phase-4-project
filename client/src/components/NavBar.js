@@ -25,12 +25,12 @@ function NavBar({ setCurrentUser }) {
     }).then(() => {
         setCurrentUser(null)
     }).then(() => navigate(`/`))
-}
+  }
 
   const NavBar = 
     <div className='navbar'>
-      <NavLink exact="true" to="/cars/" style={({ isActive }) => isActive ? selected: notSelected }> Home Page </NavLink>
-      <button onClick={ handleLogout } className="logout-button" style={ selected}>Logout</button>
+      <NavLink exact="true" to="/cars/" style={({ isActive }) => isActive ? selected : notSelected }> Home Page </NavLink>
+      <button onClick={ handleLogout } className="logout-button" style={ selected }>Logout</button>
     </div>
 
   return (
