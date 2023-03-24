@@ -34,9 +34,9 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
         e.preventDefault()
         handleAddReview( formData )
         setFormData({
-        "comments" : "",
-        "car_id" : "",
-        "user_id" : ""
+            "comments" : "",
+            "car_id" : "",
+            "user_id" : ""
         })
     }
 

@@ -2,6 +2,8 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :car
 
+  validates :comments, presence: true
+
   def u_id 
     self.user.id
   end

@@ -5,10 +5,12 @@ function LoginForm({ setCurrentUser }) {
 
   const [ username, setUsername ] = useState( "" );
   const [ password, setPassword ] = useState( "" );   
+  const [error, setError] = useState([])
   const navigate = useNavigate();
 
   function handleSubmit( e ) {
       e.preventDefault();
+       setError([])
       fetch("/login", {
         method: "POST",
         headers: {
@@ -20,7 +22,9 @@ function LoginForm({ setCurrentUser }) {
         .then( r => {
           if ( r.ok ) {
               r.json().then( user => setCurrentUser( user ));
-          } 
+          } else {
+            r.json().then((err) => setError(err.error))
+          }
         }).then(() => navigate(`/cars`))
     }
 
@@ -47,7 +51,7 @@ function LoginForm({ setCurrentUser }) {
                 <button className='login-button'>Login</button>
             </div>
             <div>
-            {/* {`${errors}`} */}
+                { error ? <p className='error'>{error}</p> : null }  
             </div>
         </form>
     </div>

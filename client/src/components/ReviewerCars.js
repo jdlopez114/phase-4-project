@@ -9,22 +9,23 @@ function ReviewerCars({ currentUser }) {
         .then(r => r.json())
         .then(data => {
             setReviewedCars( data.cars )
-          console.log(data.cars)
         })
         .catch(error => ( console.log( error )) );
       }, [currentUser.id]);
+           
+      console.log(reviewedCars)
 
   return (
-    
-    <div className='car-list' > MY REVIEWED CARS
-        { reviewedCars.map( (car, index) => {
-            return  <div  className='car-card2' key={index}>
-                        <img className="car-image" src={ car.img_url } alt="Not found."/>
-                    <h3>{ car.make } { car.model }</h3>
-          </div>
-        })}    
-    </div>
-
+      <div className='car-list'> <h2> MY REVIEWED CARS</h2>
+      <br/>
+          { reviewedCars.map( (car, index) => {
+              return  <div  className='car-card2' key={index}>
+                          <img className="car-image" src={ car.img_url } alt="Not found."/>
+                      <h3>{ car.make } { car.model }</h3>
+                      <br/>
+            </div>
+          })}    
+      </div>
   )
 }
 

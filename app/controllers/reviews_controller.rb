@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    review = Review.find( params[:id] )
+    review = Review.uniq.find( params[:id] )
     render json: review, status: :ok
   end
 
@@ -37,5 +37,5 @@ class ReviewsController < ApplicationController
     def review_params
       params.permit(:comments, :user_id, :car_id)
     end
-    
+
 end

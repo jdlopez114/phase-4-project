@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import Header from "./Header";
 import MainPage from "./MainPage";
 import CarPage from "./CarPage";
-import NavBar from "./NavBar";
 import LoginScreen from "./LoginScreen";
 import ReviewerCars from "./ReviewerCars";
 
@@ -30,9 +29,7 @@ function App() {
 
   return (
     <div className="review-app">
-      <Header currentUser={ currentUser }/>
-      <br />
-      <NavBar setCurrentUser={ setCurrentUser }/>
+      <Header currentUser={ currentUser } setCurrentUser={setCurrentUser}/>
       <br />
       <Routes>
           <Route exact path="/" element={ <MainPage displayData={ carList }/> }/>
