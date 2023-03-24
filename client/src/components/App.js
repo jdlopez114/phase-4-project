@@ -5,6 +5,7 @@ import MainPage from "./MainPage";
 import CarPage from "./CarPage";
 import NavBar from "./NavBar";
 import LoginScreen from "./LoginScreen";
+import ReviewerCars from "./ReviewerCars";
 
 function App() {
 
@@ -12,21 +13,18 @@ function App() {
   const [ carList, setCarList] = useState([])
 
   useEffect(() => {
-    fetch("/auth").then(( r ) => {
+    fetch("/auth").then( r  => {
       if ( r.ok ) {
-        r.json().then(( user ) => setCurrentUser( user ));
+        r.json().then( user => setCurrentUser( user ))
       }
     });
-  }, []);
-
-  useEffect(() => {
     fetch(`/cars`)
     .then(r => r.json())
     .then(data => {
       setCarList( data )
     })
     .catch(error => ( console.log( error )) );
-  }, [])
+  }, []);
 
   if ( !currentUser ) return <LoginScreen setCurrentUser={ setCurrentUser } />;
 
@@ -38,6 +36,7 @@ function App() {
       <br />
       <Routes>
           <Route exact path="/" element={ <MainPage displayData={ carList }/> }/>
+          <Route exact path="/cars/mycars" element={ <ReviewerCars currentUser={ currentUser }/> }/>
           <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser }/> }/>
           <Route exact path="/cars/:id" element={ <CarPage 
                                                 carList={ carList } 

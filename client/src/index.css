@@ -110,3 +110,27 @@ code {
 	font-size: 24px;
 	cursor: pointer;
 }
+
+
+.car-card2 {
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 50px 0;
+}
+
+.car-card2 .car-image {
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  height: 100px;
+  width: 125px;
+}
+
+.car-card2 .car-image img {
+  justify-content: center;
+}

@@ -95,6 +95,14 @@
         {
             "filePath": "client/src/index.css",
             "group": "Default"
+        },
+        {
+            "filePath": "client/src/components/ReviewerCars.js",
+            "group": "Default"
+        },
+        {
+            "filePath": "db/schema.rb",
+            "group": "Default"
         }
     ]
 }

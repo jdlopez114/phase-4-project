@@ -5,7 +5,7 @@ function MainPage({ displayData }) {
 
   return (
 
-    <div className='car-list'>
+    <div className='car-list' key={ displayData.id }>
         { displayData.map( car => {
             return <PageCard key={ car.id } displayData={ car }/>
         })}    

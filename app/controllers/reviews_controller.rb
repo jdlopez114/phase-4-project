@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authorize
 
   def index
     reviews = Review.all
@@ -8,6 +9,11 @@ class ReviewsController < ApplicationController
   def show
     review = Review.find( params[:id] )
     render json: review, status: :ok
+  end
+
+  def show_my_cars
+    my_cars = Review.find_by(u_id: params[:u_id])
+    render json: my_cars, status: :ok
   end
 
   def create
@@ -31,4 +37,5 @@ class ReviewsController < ApplicationController
     def review_params
       params.permit(:comments, :user_id, :car_id)
     end
+    
 end

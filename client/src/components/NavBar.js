@@ -30,6 +30,7 @@ function NavBar({ setCurrentUser }) {
   const NavBar = 
     <div className='navbar'>
       <NavLink exact="true" to="/cars/" style={({ isActive }) => isActive ? selected : notSelected }> Home Page </NavLink>
+      <NavLink exact="true" to="/cars/mycars" style={({ isActive }) => isActive ? selected : notSelected }> My Cars </NavLink>
       <button onClick={ handleLogout } className="logout-button" style={ selected }>Logout</button>
     </div>
 

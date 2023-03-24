@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.4"
 
+gem "active_model_serializers"
+
 gem 'faker'
 
 gem 'rack-cors'
@@ -52,4 +54,3 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
 end
 
-gem "active_model_serializers", "~> 0.10.12"

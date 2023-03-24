@@ -21,11 +21,11 @@ const ReviewRow = ({ review, handleDeleteReview, handleUpdateReview, currentUser
   return (
     <div className='car-review'key={ review.id }>
       <div className='review-container' key={ review.id }>
-        <h3>{ review.user.username } : </h3>
+        <h3>{ review.username } : </h3>
         <h3>{ review.comments }</h3>
       </div>
 
-      { currentUser.username === review.user.username ? ( 
+      { currentUser.username === review.username ? ( 
       <div className='icons'> 
       <TiEdit
         onClick={ () => setFormDataEdit( { id: review.id, value: review } ) }

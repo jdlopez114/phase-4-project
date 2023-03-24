@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+skip_before_action :authorize
 
   def index
     cars = Car.all
