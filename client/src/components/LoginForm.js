@@ -38,7 +38,6 @@ function LoginForm({ setCurrentUser }) {
                 value={ username }
                 onChange={( e ) => setUsername( e.target.value )}
                 name='user_name'
-              
             />
             <input
                 className='review-form-input'
@@ -50,9 +49,7 @@ function LoginForm({ setCurrentUser }) {
             <div >
                 <button className='login-button'>Login</button>
             </div>
-            <div>
-                { error ? <p className='error'>{error}</p> : null }  
-            </div>
+              { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }
         </form>
     </div>
   )

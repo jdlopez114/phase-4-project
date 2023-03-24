@@ -13,20 +13,18 @@ function ReviewerCars({ currentUser }) {
         .catch(error => ( console.log( error )) );
       }, [currentUser.id]);
            
-      console.log(reviewedCars)
-
   return (
-      <div className='car-list'> <h2> MY REVIEWED CARS</h2>
-      <br/>
-          { reviewedCars.map( (car, index) => {
-              return  <div  className='car-card2' key={index}>
-                          <img className="car-image" src={ car.img_url } alt="Not found."/>
-                      <h3>{ car.make } { car.model }</h3>
-                      <br/>
-            </div>
-          })}    
-      </div>
-  )
+        <div className='car-list'> <h2> MY REVIEWED CARS</h2>
+        <br/>
+            { reviewedCars.map( (car, index) => {
+                return  <div  className='car-card2' key={index}>
+                            <img className="car-image" src={ car.img_url } alt="Not found."/>
+                        <h3>{ car.make } { car.model }</h3>
+                        <br/>
+                </div>
+            })}    
+        </div>
+    )
 }
 
 export default ReviewerCars;
