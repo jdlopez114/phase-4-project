@@ -35,7 +35,7 @@ function SignUpForm({ setCurrentUser }) {
                     name='user_name'
                 />
                 <input
-                    className='signup-form-input'
+                    className='review-form-input'
                     placeholder='Password'
                     value={ password}
                     onChange={(e) => setPassword( e.target.value )}

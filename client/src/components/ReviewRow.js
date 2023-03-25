@@ -19,25 +19,17 @@ const ReviewRow = ({ review, handleDeleteReview, handleUpdateReview, currentUser
   }
 
   return (
-    <div className='car-review'key={ review.id }>
-      <div className='review-container' key={ review.id }>
-        <h3>{ review.username } : </h3>
-        <h3>{ review.comments }</h3>
-      </div>
-
-      { currentUser.username === review.username ? ( 
-      <div className='icons'> 
-      <TiEdit
-        onClick={ () => setFormDataEdit( { id: review.id, value: review } ) }
-        className='edit-icon'
-      />
-      <RiCloseCircleLine
-        onClick={ () => handleDeleteReview( review.id ) }
-        className='delete-icon'
-      />
-    </div>
-      ) : null }
-
+      <div className='car-review'key={ review.id }>
+        <div className='review-container' key={ review.id }>
+          <h3>{ review.username } : </h3>
+          <h3>{ review.comments }</h3>
+        </div>
+        { currentUser.username === review.username ? 
+          ( <div className='icons'> 
+              <TiEdit className='edit-icon' onClick={ () => setFormDataEdit( { id: review.id, value: review })}/>
+              <RiCloseCircleLine className='delete-icon' onClick={ () => handleDeleteReview( review.id )}/>
+            </div>
+          ) : null }
     </div>
   );
 };
