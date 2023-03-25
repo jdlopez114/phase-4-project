@@ -2,9 +2,9 @@
 
 ## Overview 
 
-Come in a test drive the lastest in luxury vehicales. With an inventory that includes, but are not limited to, sedans, coupes and even wagons, there's a car thats a right fit for you. 
+Come in and test drive the lastest in luxury vehicles. With an inventory that includes, but are not limited to, sedans, coupes, hatchbakcs and even wagons, there's a car thats right for you! 
 
-Still don't belive us? Believe the satisfied cutomers who left reviews!
+Still don't belive us? Believe the satisfied cutomers who left a review!
 
 ## Features and How to Use
 
@@ -32,4 +32,4 @@ Still don't belive us? Believe the satisfied cutomers who left reviews!
 * Run npm install --prefix client
 * Run shotgun
 * In another terminal run npm start --prefix phase-3-project-client 
-* Enjoy! Happy Reviewing! 
+* Enjoy! Happy Driving! 
