@@ -59,7 +59,7 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
             />
             <div >
                 <button 
-                className='add-review-button'
+                className="form-buttons"
                 >
                 Add Review
                 </button>

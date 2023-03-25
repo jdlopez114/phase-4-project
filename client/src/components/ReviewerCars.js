@@ -14,16 +14,19 @@ function ReviewerCars({ currentUser }) {
       }, [currentUser.id]);
            
   return (
-        <div className='car-list'> <h2> MY REVIEWED CARS</h2>
+    <> 
+    <h2 className="my-reviewed-cars"> MY REVIEWED CARS</h2>
+    <div className='car-list'> 
         <br/>
             { reviewedCars.map( (car, index) => {
                 return  <div  className='car-card2' key={index}>
                             <img className="car-image" src={ car.img_url } alt="Not found."/>
-                        <h3>{ car.make } { car.model }</h3>
+                            <h3>{ car.make } { car.model }</h3>
                         <br/>
                 </div>
             })}    
         </div>
+    </>
     )
 }
 

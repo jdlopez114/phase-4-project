@@ -24,7 +24,7 @@ function SignUpForm({ setCurrentUser }) {
     }
 
     return (
-        <div className='review-form-section' >
+        <div className='login-form-section' >
             <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit } >
                 <input
                     className='review-form-input'
@@ -35,14 +35,14 @@ function SignUpForm({ setCurrentUser }) {
                     name='user_name'
                 />
                 <input
-                    className='review-form-input'
+                    className='signup-form-input'
                     placeholder='Password'
                     value={ password}
                     onChange={(e) => setPassword( e.target.value )}
                     name='password'
                 />
                 <div >
-                    <button className='login-button'>Sign Up!</button>
+                    <button className="form-buttons">Sign Up!</button>
                 </div>
                 <div>
                 {/* {`${errors}`} */}

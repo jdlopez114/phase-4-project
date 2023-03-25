@@ -44,7 +44,7 @@ function CarPage({ carList, setCarList, currentUser }) {
 
     return(
         <div className='car-review-page'> 
-            <div className='car-card' >
+            <div className='single-car-card' >
                 <img className="car-img" src={ car?.img_url} alt="Not found."/>
                 <h3> { car?.year } { car?.make } { car?.model }</h3>
                 <h3>{ car?.color }</h3>

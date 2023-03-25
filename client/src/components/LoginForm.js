@@ -47,7 +47,7 @@ function LoginForm({ setCurrentUser }) {
                 name='password'
             />
             <div >
-                <button className='login-button'>Login</button>
+                <button className='form-buttons'>Login</button>
             </div>
               { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }
         </form>
