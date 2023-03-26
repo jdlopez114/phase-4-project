@@ -40,6 +40,7 @@ function LoginForm({ setCurrentUser }) {
                 name='user_name'
             />
             <input
+                type="password"
                 className='review-form-input'
                 placeholder='Password'
                 value={ password }
