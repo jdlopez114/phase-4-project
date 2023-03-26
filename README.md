@@ -1,8 +1,8 @@
-# Test Drive the finest German Cars Today! 
+# Test Drive the finest German Cars Today
 
-## Overview 
+## Overview
 
-Come in and test drive the lastest in luxury vehicles. With an inventory that includes, but are not limited to, sedans, coupes, hatchbakcs and even wagons, there's a car thats right for you! 
+Come in and test drive the lastest in luxury vehicles. With an inventory that includes, but are not limited to, sedans, coupes, hatchbakcs and even wagons, there's a car thats right for you!
 
 Still don't belive us? Believe the satisfied cutomers who left a review!
 
@@ -16,20 +16,23 @@ Still don't belive us? Believe the satisfied cutomers who left a review!
 
 * Check out the details on your potential new ride!
 ![review-car](images/review-car.png)
-* And leave a review! 
+* And leave a review!
 
-* You can even crowse the collection of cars you reviewed! 
+* You can even crowse the collection of cars you reviewed!
 ![my-cars](images/my-cars.png)
 
-### Requirements 
+### Requirements
+
 * Functional Web Browser
 
-### Installation Instructions 
+### Installation Instructions
+
 * Fork and clone
 
-# In your terminal:
+### In your terminal
+
 * Run bundle install
 * Run npm install --prefix client
 * Run shotgun
-* In another terminal run npm start --prefix phase-3-project-client 
-* Enjoy! Happy Driving! 
+* In another terminal run npm start --prefix phase-3-project-client
+* Enjoy! Happy Driving!
