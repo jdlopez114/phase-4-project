@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
  
   resources :users, only:[ :index, :show, :create ]
-  resources :cars, only: [ :index, :show ]
-  # resources :cars, only: [ :index, :show, :reviewed_cars ]
+  resources :cars, only: [ :index, :show, :create ]
 
   resources :reviews
-
-  # get "/cars/reviewed_cars/:id", to: "cars#reviewed_cars"
-    # get "/users/:id/", to: "reviews#show_my_cars"
-
 
   post "/signup", to: "users#create"
   get "/auth", to: "users#show"

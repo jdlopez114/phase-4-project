@@ -10,7 +10,7 @@ function LoginForm({ setCurrentUser }) {
 
   function handleSubmit( e ) {
       e.preventDefault();
-       setError([])
+        setError([])
       fetch("/login", {
         method: "POST",
         headers: {
@@ -21,11 +21,12 @@ function LoginForm({ setCurrentUser }) {
       })
         .then( r => {
           if ( r.ok ) {
-              r.json().then( user => setCurrentUser( user ));
+              r.json().then( user => setCurrentUser( user ))
+              .then(() => navigate(`/cars`))
           } else {
             r.json().then((err) => setError(err.error))
           }
-        }).then(() => navigate(`/cars`))
+        })
     }
 
   return (
@@ -50,7 +51,9 @@ function LoginForm({ setCurrentUser }) {
             <div >
                 <button className='form-buttons'>Login</button>
             </div>
-              { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }
+            <div>
+                { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }                
+            </div>
         </form>
     </div>
   )

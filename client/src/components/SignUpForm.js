@@ -5,6 +5,7 @@ function SignUpForm({ setCurrentUser }) {
 
     const [ username, setUsername ] = useState( "" );
     const [ password, setPassword ] = useState( "" );   
+    const [error, setError] = useState([])
     const navigate = useNavigate();
 
     function handleSubmit( e ) {
@@ -18,9 +19,12 @@ function SignUpForm({ setCurrentUser }) {
           body: JSON.stringify({ username, password }),
         }).then( r => {
             if ( r.ok ) {
-                r.json().then( user => setCurrentUser( user ) );
-            } 
-          }).then(() => navigate(`/cars`))
+                r.json().then( user => setCurrentUser( user ))
+                .then(() => navigate(`/cars`))
+            } else {
+                r.json().then((err) => setError(err.errors))
+            }
+        })
     }
 
     return (
@@ -35,6 +39,7 @@ function SignUpForm({ setCurrentUser }) {
                     name='user_name'
                 />
                 <input
+                    type="password"
                     className='review-form-input'
                     placeholder='Password'
                     value={ password}
@@ -45,7 +50,7 @@ function SignUpForm({ setCurrentUser }) {
                     <button className="form-buttons">Sign Up!</button>
                 </div>
                 <div>
-                {/* {`${errors}`} */}
+                { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }                
                 </div>
             </form>
         </div>

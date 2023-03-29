@@ -11,4 +11,15 @@ skip_before_action :authorize
     render json: car, status: :ok
   end
 
+  def create 
+    car = Car.create!( car_params )
+    render json: car, status: :created 
+  end
+
+  private 
+
+  def car_params
+    params.permit(:make, :model, :year, :color, :drive, :miles, :img_url)
+  end
+
 end

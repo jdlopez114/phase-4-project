@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from "./Header";
 import MainPage from "./MainPage";
 import CarPage from "./CarPage";
+import CarForm from "./CarForm";
 import LoginScreen from "./LoginScreen";
 import ReviewerCars from "./ReviewerCars";
 
@@ -33,6 +34,7 @@ function App() {
       <br />
       <Routes>
           <Route exact path="/" element={ <MainPage displayData={ carList }/> }/>
+          <Route exact path="/cars/new" element={ <CarForm carList={carList} setCarList={ setCarList }/> }/>
           <Route exact path="/cars/mycars" element={ <ReviewerCars currentUser={ currentUser }/> }/>
           <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser }/> }/>
           <Route exact path="/cars/:id" element={ <CarPage 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function ReviewForm({ car, currentUser, setCarList, carList }) {
 
     const navigate = useNavigate();
-
+    const [error, setError] = useState([])
     const [ formData, setFormData ] = useState ({ 
         "comments" : "",
         "car_id" : car?.id,
@@ -18,11 +18,15 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
             "Content-Type" : "application/json",
           }, 
             body: JSON.stringify( newReview )
+        }).then( r => { 
+            if ( r.ok ) {
+                r.json().then( data => addReview( data ))
+                .then( () => navigate(`/cars/${ car.id }`) )
+            } else {
+                r.json().then((err) => setError(err.errors))
+                // r.json().then((err) => console.log(err.errors))
+            }
         })
-        .then( r => r.json())
-        .then( data => addReview( data ))
-        .then( () => navigate(`/cars/${ car.id }`) )
-        .catch( error => (console.log( error )) )
     }    
       
     function addReview( review ){
@@ -32,6 +36,7 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
 
     function handleFormSubmit(e){
         e.preventDefault()
+        setError([])
         handleAddReview( formData )
         setFormData({
             "comments" : "",
@@ -50,20 +55,23 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
     return (
         <div className='review-form-section' >
             <form noValidate autoComplete="off" className='review-form' onSubmit={ handleFormSubmit } >
-            <input
-                placeholder='Add a review'
-                value={ formData.comments }
-                onChange={ handleChange }
-                name='comments'
-                className='review-form-input'
-            />
-            <div >
-                <button 
-                className="form-buttons"
-                >
-                Add Review
-                </button>
-            </div>
+                <input
+                    placeholder='Add a review'
+                    value={ formData.comments }
+                    onChange={ handleChange }
+                    name='comments'
+                    className='review-form-input'
+                />
+                <div >
+                    <button 
+                    className="form-buttons"
+                    >
+                    Add Review
+                    </button>
+                </div>
+                <div>
+                { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }                
+                </div>
             </form>
         </div>
     );

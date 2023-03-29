@@ -34,6 +34,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+  
     def review_params
       params.permit(:comments, :user_id, :car_id)
     end
