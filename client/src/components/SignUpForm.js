@@ -22,7 +22,7 @@ function SignUpForm({ setCurrentUser }) {
                 r.json().then( user => setCurrentUser( user ))
                 .then(() => navigate(`/cars`))
             } else {
-                r.json().then((err) => setError(err.errors))
+                r.json().then((err) => setError(err.errors.join()))
             }
         })
     }

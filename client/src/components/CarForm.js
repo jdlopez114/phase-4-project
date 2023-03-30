@@ -20,10 +20,14 @@ function CarForm({ carList, setCarList }) {
       }, 
         body: JSON.stringify( newCar )
     })
-    .then( r => r.json())
-    .then( data => addCar( data ))
-    .then( () => navigate(`/cars`) )
-    .catch( error => (console.log( error )) )
+    .then( r => {
+      if (r.ok){
+        r.json().then( data => addCar( data ))
+        .then(() => navigate(`/cars`))
+      } else {
+        r.json().then( data => setError( data.errors.join() ))
+      }
+    })
   }
 
   function addCar( car ){

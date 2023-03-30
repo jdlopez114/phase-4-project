@@ -14,7 +14,7 @@ function LoginScreen({ setCurrentUser }) {
         { showSignUp ? (
           <> 
           <br/> 
-          {/* <h2> LOGIN </h2> */}
+          <h2> LOGIN </h2>
             <LoginForm setCurrentUser={ setCurrentUser } />
             <button className="form-buttons" onClick={ () => setShowSignUp( false ) }>
             Sign Up
@@ -22,7 +22,8 @@ function LoginScreen({ setCurrentUser }) {
           </>
         ) : ( 
           <> 
-            Don't have an account? Sign up now!
+          <br/> 
+          <h2>Don't have an account? Sign up now!</h2>
             <SignUpForm setCurrentUser={ setCurrentUser } /> 
             <button className="form-buttons" onClick={ () => setShowSignUp(true) }>
             Back to Login
