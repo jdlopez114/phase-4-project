@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
     def top_users
         #psuedo code here
-        @users = top_4_users
+        @users = User.top_4_users
+        # byebug
         render json: @users
     end
 

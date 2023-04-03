@@ -7,7 +7,7 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
 
     def self.top_4_users
-        self
+        User
         .joins(:reviews)
         .group(:id)
         .order("COUNT(reviews.id) DESC")
