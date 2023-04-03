@@ -6,9 +6,11 @@ class UsersController < ApplicationController
         render json: users 
     end
 
-    # def top_users
-    #     #psuedo code here
-    # end
+    def top_users
+        #psuedo code here
+        @users = top_4_users
+        render json: @users
+    end
 
     def create
         user = User.create!(user_params)

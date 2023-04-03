@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function ReviewForm({ car, currentUser, setCarList, carList }) {
 
     const navigate = useNavigate();
-    const [error, setError] = useState([])
+    const [ error, setError ] = useState([])
     const [ formData, setFormData ] = useState ({ 
         "comments" : "",
         "car_id" : car?.id,
@@ -16,6 +16,7 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
           method: "POST",
           headers: { 
             "Content-Type" : "application/json",
+            'Accept': 'application/json'
           }, 
             body: JSON.stringify( newReview )
         }).then( r => { 
@@ -23,8 +24,7 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
                 r.json().then( data => addReview( data ))
                 .then( () => navigate(`/cars/${ car.id }`) )
             } else {
-                r.json().then((err) => setError(err.errors))
-                // r.json().then((err) => console.log(err.errors))
+                r.json().then((err) => setError( err.errors ))
             }
         })
     }    
@@ -60,7 +60,7 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
                     value={ formData.comments }
                     onChange={ handleChange }
                     name='comments'
-                    className='review-form-input'
+                    className='form-input'
                 />
                 <div >
                     <button 

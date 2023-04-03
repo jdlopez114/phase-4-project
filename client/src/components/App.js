@@ -19,8 +19,8 @@ function App() {
       }
     });
     fetch(`/cars`)
-    .then(r => r.json())
-    .then(data => {
+    .then( r => r.json())
+    .then( data => {
       setCarList( data )
     })
     .catch(error => ( console.log( error )) );

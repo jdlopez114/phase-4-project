@@ -16,4 +16,8 @@ class Review < ApplicationRecord
     { :make => self.car.make, :model => self.car.model, :img_url => self.car.img_url }
   end
 
+  # def self.top_four 
+  #   Review.where(user_id: id).order('COUNT(*) DESC').limit(4)
+  # end
+
 end

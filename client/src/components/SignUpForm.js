@@ -5,7 +5,7 @@ function SignUpForm({ setCurrentUser }) {
 
     const [ username, setUsername ] = useState( "" );
     const [ password, setPassword ] = useState( "" );   
-    const [error, setError] = useState([])
+    const [ error, setError ] = useState([])
     const navigate = useNavigate();
 
     function handleSubmit( e ) {
@@ -28,10 +28,10 @@ function SignUpForm({ setCurrentUser }) {
     }
 
     return (
-        <div className='login-form-section' >
+        <div className='form-section' >
             <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit } >
                 <input
-                    className='review-form-input'
+                    className='form-input'
                     placeholder='Username'
                     autoComplete="off"
                     value={ username }
@@ -40,7 +40,7 @@ function SignUpForm({ setCurrentUser }) {
                 />
                 <input
                     type="password"
-                    className='review-form-input'
+                    className='form-input'
                     placeholder='Password'
                     value={ password}
                     onChange={(e) => setPassword( e.target.value )}

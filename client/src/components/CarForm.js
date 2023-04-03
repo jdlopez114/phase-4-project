@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function CarForm({ carList, setCarList }) {
 
   const navigate = useNavigate();
-  const [error, setError] = useState([])
+  const [ error, setError ] = useState([])
   const [ formData, setFormData ] = useState ({
     "make" : "",
     "model" : "",
@@ -17,27 +17,28 @@ function CarForm({ carList, setCarList }) {
       method: "POST",
       headers: {
         "Content-Type" : "application/json",
+        'Accept': 'application/json'
       }, 
         body: JSON.stringify( newCar )
     })
     .then( r => {
-      if (r.ok){
+      if ( r.ok ){
         r.json().then( data => addCar( data ))
-        .then(() => navigate(`/cars`))
+        .then(() => navigate(`/cars/`))
       } else {
-        r.json().then( data => setError( data.errors.join() ))
+        r.json().then(( err ) => setError( err.errors.join() ))
       }
     })
   }
 
   function addCar( car ){
     const updatedSet = { ...carList, car }
-    setCarList(carList.map(c => c.id === updatedSet.id ? updatedSet : c))
+    setCarList( carList.map(c => c.id === updatedSet.id ? updatedSet : c ))
   }
 
-  function handleFormSubmit(e){
+  function handleFormSubmit( e ){
     e.preventDefault()
-    console.log(formData)
+    setError([])
     handleAddCar( formData )
     setFormData({
       "make" : "",
@@ -55,10 +56,10 @@ function CarForm({ carList, setCarList }) {
   }
     
   return (
-    <div className='review-form-section' >
+    <div className='car-form-section' >
       <form noValidate autoComplete="off" className='review-form' onSubmit={ handleFormSubmit } >
         <input
-            className='review-form-input'
+            className='form-input'
             placeholder='Make'
             autoComplete="off"
             value={ formData.make }
@@ -66,21 +67,21 @@ function CarForm({ carList, setCarList }) {
             name='make'
         />
           <input
-            className='review-form-input'
+            className='form-input'
             placeholder='Model'
             value={ formData.model }
             onChange={ handleChange }
             name='model'
         />
           <input
-            className='review-form-input'
+            className='form-input'
             placeholder='Year'
             value={ formData.year }
             onChange={ handleChange }
             name='year'
         />
           <input
-            className='review-form-input'
+            className='form-input'
             placeholder='Image Url'
             value={ formData.img_url }
             onChange={ handleChange }

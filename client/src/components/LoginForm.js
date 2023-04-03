@@ -22,9 +22,9 @@ function LoginForm({ setCurrentUser }) {
         .then( r => {
           if ( r.ok ) {
               r.json().then( user => setCurrentUser( user ))
-              .then(() => navigate(`/cars`))
+              .then(() => navigate(`/cars/`))
           } else {
-            r.json().then((err) => setError(err.error))
+            r.json().then(( err ) => setError( err.error ))
           }
         })
     }
@@ -33,7 +33,7 @@ function LoginForm({ setCurrentUser }) {
     <div className='review-form-section' >
         <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit } >
             <input
-                className='review-form-input'
+                className='form-input'
                 placeholder='Username'
                 autoComplete="off"
                 value={ username }
@@ -42,7 +42,7 @@ function LoginForm({ setCurrentUser }) {
             />
             <input
                 type="password"
-                className='review-form-input'
+                className='form-input'
                 placeholder='Password'
                 value={ password }
                 onChange={( e ) => setPassword( e.target.value )}

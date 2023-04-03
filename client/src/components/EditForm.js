@@ -27,7 +27,7 @@ function EditForm({ formDataEdit, setFormDataEdit, handleUpdateReview }) {
                     value={ formDataEdit.comments }
                     onChange={ handleChange }
                     name='comments'
-                    className='review-form-input'
+                    className='form-input'
                 />
                 <div >
                     <button 

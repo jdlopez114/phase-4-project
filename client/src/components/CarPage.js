@@ -49,7 +49,6 @@ function CarPage({ carList, setCarList, currentUser }) {
                 <h3> { car?.year } { car?.make } { car?.model }</h3>
                 <h3>{ car?.color }</h3>
                 <h3>{ car?.drive }</h3>
-                <h3>{ car?.miles } miles </h3>
             </div>
             <div className='review-section' > 
             <ReviewForm car={ car } currentUser={ currentUser } carList={carList} setCarList={setCarList}/> 
