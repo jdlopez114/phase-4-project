@@ -10,6 +10,8 @@ u1 = User.create(username: "Anakin", password: "cars")
 u2 = User.create(username: "LeBron", password: "cars")
 u3 = User.create(username: "Carmelo", password: "cars")
 u4 = User.create(username: "Derek", password: "cars")
+u5 = User.create(username: "Mike", password: "cars")
+
 
 puts "Seeding Cars..."
 
@@ -255,26 +257,26 @@ c20 = Car.create(
 
 puts "Seeding Reviews..."
 
-r1 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c11.id)
-r2 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c12.id)
-r3 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c13.id)
-r4 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c14.id)
-r5 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c15.id)
-r6 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c16.id)
-r7 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c17.id)
-r8 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c18.id)
-r9 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c19.id)
-r10 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c10.id)
-r11 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c1.id)
-r12 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c2.id)
-r13 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c3.id)
-r14 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c4.id)
-r15 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c5.id)
-r16 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c6.id)
-r17 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c7.id)
-r18 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c8.id)
-r19 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c9.id)
-r20 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c20.id)
+
+r1 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c12.id)
+r2 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c13.id)
+r3 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c14.id)
+
+r4 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c16.id)
+r5 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c17.id)
+r6 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c18.id)
+
+
+r7 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c1.id)
+r8 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c2.id)
+r9 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c3.id)
+
+r10 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c5.id)
+r11 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c6.id)
+r12 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c7.id)
+r13 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c8.id)
+r14 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c9.id)
+
 r21 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c1.id)
 r22 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c2.id)
 r23 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c3.id)
@@ -290,10 +292,14 @@ r32 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id
 r33 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c13.id)
 r34 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c14.id)
 r35 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c15.id)
-r36 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c16.id)
-r37 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c17.id)
-r38 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c18.id)
-r39 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c19.id)
-r40 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c20.id)
+r20 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c16.id)
+r19 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u1.id, car_id: c17.id)
+r18 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u2.id, car_id: c18.id)
+r17 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u3.id, car_id: c19.id)
+r16 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u4.id, car_id: c20.id)
+r15 = Review.create(comments: Faker::Lorem.paragraph(sentence_count: 3), user_id: u5.id, car_id: c20.id)
+
+
+
 
 puts "✅ Done seeding!"
