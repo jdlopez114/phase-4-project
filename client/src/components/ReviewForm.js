@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ReviewForm({ car, currentUser, setCarList, carList }) {
+function ReviewForm({ car, setCar, currentUser, setCarList, carList, carReviews, setCarReviews }) {
+
+    console.log("ReviewForm - car", car)
+    console.log("ReviewForm - currentUser", currentUser)
+
 
     const navigate = useNavigate();
     const [ error, setError ] = useState([])
-    const [ formData, setFormData ] = useState ({ 
-        "comments" : "",
-        "car_id" : car?.id,
-        "user_id" : currentUser?.id
-    })
+    const [ commentInput, setCommentInput ] = useState ("")
+    const newReview = { 
+        comments : commentInput,
+        car_id : car.id,
+        user_id : currentUser.id
+    }
 
-    function handleAddReview( newReview ){
+    function handleSubmit( e ){
+        e.preventDefault()
         fetch(`/reviews`, {
           method: "POST",
           headers: { 
@@ -21,44 +27,47 @@ function ReviewForm({ car, currentUser, setCarList, carList }) {
             body: JSON.stringify( newReview )
         }).then( r => { 
             if ( r.ok ) {
-                r.json().then( data => addReview( data ))
+                r.json().then( data => setCarReviews([ ...carReviews, data ]))
                 .then( () => navigate(`/cars/${ car.id }`) )
+                setCommentInput("")
             } else {
                 r.json().then((err) => setError( err.errors ))
             }
         })
     }    
       
-    function addReview( review ){
-        const updatedSet = { ...car, reviews: [ review, ...car.reviews ] }
-        setCarList( carList.map( c => c.id === updatedSet.id ? updatedSet : c ))
-    }
+    // function addReview( review ){
+    //     const updatedSet = { ...car, reviews: [ review, ...car.reviews ] }
+    //     // setCarList( carList.map( c => c.id === updatedSet.id ? updatedSet : c ))
+    //     // setCar(updatedSet)
+    //     console.log("updatedSet:", updatedSet)
+    // }
 
-    function handleFormSubmit(e){
-        e.preventDefault()
-        setError([])
-        handleAddReview( formData )
-        setFormData({
-            "comments" : "",
-            "car_id" : "",
-            "user_id" : ""
-        })
-    }
+    // function handleFormSubmit(e){
+        
+    //     setError([])
+    //     handleAddReview( formData )
+    //     setFormData({
+    //         "comments" : "",
+    //         "car_id" : "",
+    //         "user_id" : ""
+    //     })
+    // }
 
-    function handleChange(e){
-        setFormData({
-            ...formData, 
-            [ e.target.name ] : e.target.value
-        })
-    }
+    // function handleChange(e){
+    //     setFormData({
+    //         ...formData, 
+    //         [ e.target.name ] : e.target.value
+    //     })
+    // }
 
     return (
         <div className='review-form-section' >
-            <form noValidate autoComplete="off" className='review-form' onSubmit={ handleFormSubmit } >
+            <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit } >
                 <input
                     placeholder='Add a review'
-                    value={ formData.comments }
-                    onChange={ handleChange }
+                    value={ commentInput }
+                    onChange={(e) => setCommentInput(e.target.value)}
                     name='comments'
                     className='form-input'
                 />

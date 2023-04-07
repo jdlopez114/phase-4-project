@@ -14,7 +14,7 @@ function App() {
   const [ reviewerCars, setReviewerCars ] = useState([])
  
 
-  console.log("App - currentUser:", currentUser)
+  // console.log("App - currentUser:", currentUser)
   // console.log("App - carList:", carList)
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
       <Routes>
           <Route exact path="/" element={ <MainPage displayData={ carList }/> }/>
           <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser }/> }/>
-          <Route exact path="/cars/:id" element={ <CarPage carList={ carList } setCarList={ setCarList } currentUser={ currentUser }/> }/>
+          <Route exact path="/cars/:id" element={ <CarPage currentUser={ currentUser } setCurrentUser={ setCurrentUser }/> }/>
           <Route exact path="/cars/new" element={ <CarForm carList={carList} setCarList={ setCarList }/> }/>
           <Route exact path="/cars/mycars" element={ <ReviewerCars reviewerCars={ reviewerCars }/> }/>
 
