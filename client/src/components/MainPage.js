@@ -3,6 +3,8 @@ import PageCard from "./PageCard";
 
 function MainPage({ displayData }) {
 
+  console.log("MainPage - displayData:", displayData)
+
   return (
     <div key={ displayData.id }>
         { displayData.map( car => {

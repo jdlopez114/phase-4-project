@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom';
 import ReviewForm from './ReviewForm';
 import ReviewRow from './ReviewRow';
 
-function CarPage({ carList, setCarList, currentUser }) {         
+function CarPage({ carList, setCarList, currentUser }) {     
+  
+  console.log("CarPage - carList:", carList)
 
     const { id } = useParams();
     const car = carList.find( c => c.id === parseInt( id ) );
