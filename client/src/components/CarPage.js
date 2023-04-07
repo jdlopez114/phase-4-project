@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewForm from './ReviewForm';
 import ReviewRow from './ReviewRow';
 
 function CarPage({ carList, setCarList, currentUser }) {     
+
+  const { id } = useParams();
+  const [ car, setCar ] = useState([])
+
+  useEffect(() => {
+    fetch(`/cars/${id}`)
+    .then(r => r.json())
+    .then(data => setCar( data ))
+  },[id])
   
   console.log("CarPage - carList:", carList)
+  console.log("CarPage - car:", car)
 
-    const { id } = useParams();
-    const car = carList.find( c => c.id === parseInt( id ) );
 
     function handleDeleteReview( id ){
-        fetch(`/reviews/${ id }`, {
+        fetch(`/reviews/user_reviews/${ id }`, {
           method: "DELETE",
           headers: { 
             "Content-Type" : "application/json"
@@ -27,7 +35,7 @@ function CarPage({ carList, setCarList, currentUser }) {
       }
     
       function handleUpdateReview( editedReview ){
-        fetch(`/reviews/${ editedReview.id }`, {
+        fetch(`/reviews/user_reviews/${ editedReview.id }`, {
           method: "PATCH",
           headers:{
             "Content-Type" : "application/json"
@@ -54,11 +62,11 @@ function CarPage({ carList, setCarList, currentUser }) {
             </div>
             <div className='review-section' > 
             <ReviewForm car={ car } currentUser={ currentUser } carList={carList} setCarList={setCarList}/> 
-                { car?.reviews.map(rev => { return <ReviewRow key={ rev.id } review={ rev }
+                {/* { car?.reviews.map(rev => { return <ReviewRow key={ rev.id } review={ rev }
                                 handleDeleteReview={ handleDeleteReview } 
                                 handleUpdateReview={ handleUpdateReview } 
                                 currentUser={ currentUser }
-                            />}) }
+                            />}) } */}
             </div>
         </div>
     )

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   post "/signup", to: "users#create"
   get "/auth", to: "users#show"
-  get "/top", to: "users#top_users"
+  # get "/top", to: "users#top_users"
+  get "/reviews/user_reviews/:id", to: "reviews#user_reviews"
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

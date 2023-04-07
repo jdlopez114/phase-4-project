@@ -11,10 +11,11 @@ class ReviewsController < ApplicationController
     render json: review, status: :ok
   end
 
-  def show_my_cars
-    my_cars = Review.find_by(u_id: params[:u_id])
-    render json: my_cars, status: :ok
+  def user_reviews
+    current_user_reviews = Review.joins(:user).where(:user => {:id => params[:id]})
+    render json: current_user_reviews, status: :ok
   end
+  
 
   def create
     review = Review.create!( review_params )
