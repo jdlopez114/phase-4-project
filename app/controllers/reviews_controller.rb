@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_before_action :authorize
+  before_action :authorize
 
   def index
     reviews = Review.all
@@ -11,25 +11,19 @@ class ReviewsController < ApplicationController
     render json: review, status: :ok
   end
 
-  def user_reviews
-    current_user_reviews = Review.joins(:user).where(:user => {:id => params[:id]})
-    render json: current_user_reviews, status: :ok
-  end
-  
-
   def create
-    review = Review.create!( review_params )
+    review = @current_user.reviews.create( review_params )
     render json: review, status: :created
   end
 
   def update
-    review = Review.find( params[:id] )
+    review = @current_user.reviews.find( params[:id] )
     review.update!( review_params )
     render json: review, status: :ok
   end
 
   def destroy
-    review = Review.find( params[:id] )
+    review = @current_user.reviews.find( params[:id] )
     review.destroy
     head :no_content  
   end
@@ -37,7 +31,7 @@ class ReviewsController < ApplicationController
   private
   
     def review_params
-      params.permit(:comments, :user_id, :car_id)
+      params.permit( :comments, :car_id )
     end
 
 end

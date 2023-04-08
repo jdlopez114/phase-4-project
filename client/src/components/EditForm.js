@@ -31,7 +31,7 @@ function EditForm({ formDataEdit, setFormDataEdit, handleUpdateReview }) {
                 />
                 <div >
                     <button 
-                    className='add-review-button'
+                    className='form-button'
                     >
                     Update Review
                     </button>

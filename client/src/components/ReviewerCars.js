@@ -1,6 +1,6 @@
 import React from "react";
 
-function ReviewerCars({ reviewerCars }) {
+function ReviewerCars({ currentUser }) {
            
   return (
         <> 
@@ -8,7 +8,7 @@ function ReviewerCars({ reviewerCars }) {
             <br/>
             <br/>
             <div className='car-list'> 
-                    { reviewerCars.map(( car, index ) => {
+                    { currentUser.cars.map(( car, index ) => {
                         return  <div  className='car-card2' key={ index }>
                                     <img className="car-image" src={ car.img_url } alt="Not found."/>
                                     <h3>{ car.make } { car.model }</h3>

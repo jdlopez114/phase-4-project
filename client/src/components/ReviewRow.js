@@ -3,11 +3,7 @@ import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 import EditForm from './EditForm';
 
-const ReviewRow = ({ review, handleDeleteReview, handleUpdateReview, currentUser, car, setCar, carReviews }) => {
-
-  // console.log("ReviewRow - review:", review)
-  // console.log("ReviewRow - car:", car)
-
+const ReviewRow = ({ currentUser, review, handleDeleteReview, handleUpdateReview }) => {
 
   const [ formDataEdit, setFormDataEdit ]  = useState({ 
     "comments" : review.comments,

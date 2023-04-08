@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ReviewForm({ car, setCar, currentUser, setCarList, carList, carReviews, setCarReviews }) {
+function ReviewForm({ car, carList, setCarList }) {
 
-    console.log("ReviewForm - car", car)
-    console.log("ReviewForm - currentUser", currentUser)
-
+    console.log("ReviewForm-> car:", car)
 
     const navigate = useNavigate();
     const [ error, setError ] = useState([])
     const [ commentInput, setCommentInput ] = useState ("")
     const newReview = { 
         comments : commentInput,
-        car_id : car.id,
-        user_id : currentUser.id
+        car_id : car.id
     }
 
     function handleSubmit( e ){
@@ -27,7 +24,7 @@ function ReviewForm({ car, setCar, currentUser, setCarList, carList, carReviews,
             body: JSON.stringify( newReview )
         }).then( r => { 
             if ( r.ok ) {
-                r.json().then( data => setCarReviews([ ...carReviews, data ]))
+                r.json().then( data => addReview(data))
                 .then( () => navigate(`/cars/${ car.id }`) )
                 setCommentInput("")
             } else {
@@ -35,31 +32,11 @@ function ReviewForm({ car, setCar, currentUser, setCarList, carList, carReviews,
             }
         })
     }    
-      
-    // function addReview( review ){
-    //     const updatedSet = { ...car, reviews: [ review, ...car.reviews ] }
-    //     // setCarList( carList.map( c => c.id === updatedSet.id ? updatedSet : c ))
-    //     // setCar(updatedSet)
-    //     console.log("updatedSet:", updatedSet)
-    // }
 
-    // function handleFormSubmit(e){
-        
-    //     setError([])
-    //     handleAddReview( formData )
-    //     setFormData({
-    //         "comments" : "",
-    //         "car_id" : "",
-    //         "user_id" : ""
-    //     })
-    // }
-
-    // function handleChange(e){
-    //     setFormData({
-    //         ...formData, 
-    //         [ e.target.name ] : e.target.value
-    //     })
-    // }
+    function addReview( review ){
+        const updatedCar = { ...car, reviews: [ review, ...car.reviews ] }
+        setCarList( carList.map( c => c.id === updatedCar.id ? updatedCar : c ))
+    }
 
     return (
         <div className='review-form-section' >
