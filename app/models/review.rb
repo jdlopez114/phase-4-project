@@ -8,8 +8,4 @@ class Review < ApplicationRecord
     self.user.username
   end
 
-  # def reviewed_car
-  #   { :make => self.car.make, :model => self.car.model, :img_url => self.car.img_url }
-  # end
-
 end

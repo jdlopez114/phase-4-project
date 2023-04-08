@@ -1,37 +1,40 @@
 import React from 'react';
 
-function EditForm({ formDataEdit, setFormDataEdit, handleUpdateReview }) {
+function EditForm({ editCommentInput, setEditCommentInput, handleUpdateReview }) {
+
+    console.log("EditForm-> editCommentInput:", editCommentInput)
+
+    const { comments } = editCommentInput
 
     function handleUpdateSubmit( e ){
         e.preventDefault()
-        handleUpdateReview( formDataEdit )
-        setFormDataEdit({
+        handleUpdateReview( editCommentInput )
+        setEditCommentInput({
             "comments" : "",
-            "car_id" : "",
-            "user_id" : ""
+            "car_id" : ""
         })
     }
 
     function handleChange( e ){
-        setFormDataEdit({
-            ...formDataEdit, 
+        setEditCommentInput({
+            ...editCommentInput, 
             [ e.target.name ] : e.target.value
         })
     }
  
     return (
         <div className='review-form-section' >
-            <form noValidate autoComplete="off" className='review-form' onSubmit={ ( e ) => handleUpdateSubmit ( e ) }>
+            <form noValidate autoComplete="off" className='review-form' onSubmit={( e ) => handleUpdateSubmit( e )}>
                 <input
                     placeholder='Edit Review'
-                    value={ formDataEdit.comments }
+                    value={ comments }
                     onChange={ handleChange }
                     name='comments'
                     className='form-input'
                 />
                 <div >
                     <button 
-                    className='form-button'
+                    className='form-buttons'
                     >
                     Update Review
                     </button>

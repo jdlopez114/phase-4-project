@@ -5,24 +5,23 @@ import EditForm from './EditForm';
 
 const ReviewRow = ({ currentUser, review, handleDeleteReview, handleUpdateReview }) => {
 
-  const [ formDataEdit, setFormDataEdit ]  = useState({ 
+  const [ editCommentInput, setEditCommentInput ]  = useState({ 
     "comments" : review.comments,
-    "car_id" : review.car_id,
-    "user_id" : review.user_id
+    "car_id" : review.car_id
   })
 
-  if ( formDataEdit.id ) {
+  if ( editCommentInput.id ) {
     return <EditForm 
-              formDataEdit={ formDataEdit } 
               handleUpdateReview={ handleUpdateReview } 
-              setFormDataEdit={ setFormDataEdit }/>;
+              editCommentInput={ editCommentInput } 
+              setEditCommentInput={ setEditCommentInput }/>;
   }
 
   return (
       <div className='car-review'key={ review.id }>
         { currentUser.username === review.username ? 
                 ( <div className='icons'> 
-                    <TiEdit className='edit-icon' onClick={ () => setFormDataEdit( { id: review.id, value: review })}/>
+                    <TiEdit className='edit-icon' onClick={ () => setEditCommentInput( { id: review.id, value: review })}/>
                     <RiCloseCircleLine className='delete-icon' onClick={ () => handleDeleteReview( review.id )}/>
                   </div>
                 ) : null }

@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 function ReviewForm({ car, carList, setCarList }) {
 
-    console.log("ReviewForm-> car:", car)
-
     const navigate = useNavigate();
     const [ error, setError ] = useState([])
     const [ commentInput, setCommentInput ] = useState ("")

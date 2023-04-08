@@ -165,7 +165,7 @@ code {
   justify-items: center;
 }
 
-.error-message{
+.error-message {
   width: 100%;
   padding: 5px 20px;
   margin-top: 3px;
@@ -173,7 +173,7 @@ code {
   border-radius: 5px;
 }
 
-.errors-container{
+.errors-container {
   margin: 10px 0px;
   justify-self: center;
   width: 100%;
@@ -219,7 +219,7 @@ code {
   text-decoration: none;
 }
 
-.my-reviewed-cars{
+.my-reviewed-cars {
   padding-left: 50px;
   padding-top: 40px;
   text-align: center;
