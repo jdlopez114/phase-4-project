@@ -40,7 +40,6 @@ function App() {
           <Route exact path="/cars/:id" element={ <CarPage currentUser={ currentUser } setCurrentUser={ setCurrentUser } carList={ carList } setCarList={ setCarList }/> }/>
           <Route exact path="/cars/new" element={ <CarForm carList={ carList } setCarList={ setCarList }/> }/>
           <Route exact path="/cars/mycars" element={ <ReviewerCars currentUser={ currentUser }/> }/>
-
       </Routes>
     </div>
   );

@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import ReviewForm from './ReviewForm';
 import ReviewRow from './ReviewRow';
 
-function CarPage({ currentUser, carList, setCarList }) {     
+function CarPage({ currentUser, setCurrentUser, carList, setCarList }) {     
 
   const { id } = useParams();
   const car = carList.find(c => c.id === parseInt(id));
 
-  console.log("CarPage -> car:", car)
+  // console.log("CarPage -> car:", car)
 
   function handleDeleteReview( id ){
       fetch(`/reviews/${ id }`, {
@@ -41,7 +41,8 @@ function CarPage({ currentUser, carList, setCarList }) {
   
     function updateReview( editedRev ){
       const updatedCarObject = { ...car, reviews: [ editedRev, ...car.reviews.filter( rev => rev.id !== editedRev.id ) ]}
-      setCarList( carList.map( c => c.id === updatedCarObject.id ? updatedCarObject : c ))
+      setCarList( carList.map( c => console.log(c) ))
+      console.log("updatedCarObject:", updatedCarObject)
     }
 
     return(
@@ -53,12 +54,20 @@ function CarPage({ currentUser, carList, setCarList }) {
                 <h3>{ car.drive }</h3>
             </div>
             <div className='review-section' > 
-            <ReviewForm currentUser={ currentUser } car={ car } carList={carList} setCarList={setCarList}/> 
-                { car.reviews.map(rev => { return <ReviewRow key={ rev.id } review={ rev }
-                                handleDeleteReview={ handleDeleteReview } 
-                                handleUpdateReview={ handleUpdateReview } 
-                                currentUser={ currentUser }
-                            />}) }
+            <ReviewForm 
+                currentUser={ currentUser }  
+                setCurrentUser={ setCurrentUser } 
+                car={ car } carList={ carList } 
+                setCarList={ setCarList }
+            /> 
+              { car.reviews.map(rev => { 
+                  return <ReviewRow 
+                            key={ rev.id } 
+                            review={ rev }
+                            handleDeleteReview={ handleDeleteReview } 
+                            handleUpdateReview={ handleUpdateReview } 
+                            currentUser={ currentUser }
+                        />}) }
             </div>
         </div>
     )

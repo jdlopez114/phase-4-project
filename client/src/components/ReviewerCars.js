@@ -1,13 +1,10 @@
-import React from "react";
+import React  from "react";
 
 function ReviewerCars({ currentUser }) {
 
     const { cars } = currentUser
-    
     const uniqueCars = cars.filter(
-        (obj, index, self) =>
-          index === self.findIndex((t) => t.make === obj.make && t.model === obj.model)
-      );
+        (obj, index, self) => index === self.findIndex((t) => t.make === obj.make && t.model === obj.model));
            
   return (
         <> 
