@@ -7,7 +7,7 @@ function LoginScreen({ setCurrentUser }) {
   const [ showSignUp, setShowSignUp ] = useState( true );
 
   return (
-    <> 
+    <div> 
       <h2 className="navbar">TEST DRIVE LOGIN </h2>
       <div className="login-form">
       
@@ -31,7 +31,7 @@ function LoginScreen({ setCurrentUser }) {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

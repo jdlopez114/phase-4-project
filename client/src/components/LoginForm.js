@@ -31,7 +31,7 @@ function LoginForm({ setCurrentUser }) {
 
   return (
     <div className='review-form-section' >
-        <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit } >
+        <form noValidate autoComplete="off" className='review-form' onSubmit={ (e) => handleSubmit(e) } >
             <input
                 className='form-input'
                 placeholder='Username'

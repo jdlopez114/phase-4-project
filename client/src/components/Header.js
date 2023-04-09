@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 function Header({ currentUser, setCurrentUser }) { 
 
   const { username } = currentUser
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function handleLogout(){
     fetch('/logout', {

@@ -35,11 +35,11 @@ function App() {
       <Header currentUser={ currentUser } setCurrentUser={ setCurrentUser }/>
       <br />
       <Routes>
-          <Route exact path="/" element={ <MainPage displayData={ carList }/> }/>
-          <Route exact path="/cars/" element={ <MainPage displayData={ carList } currentUser={ currentUser }/> }/>
+          <Route exact path="/" element={ <MainPage carList={ carList }/> }/>
+          <Route exact path="/cars/" element={ <MainPage carList={ carList } currentUser={ currentUser }/> }/>
           <Route exact path="/cars/:id" element={ <CarPage currentUser={ currentUser } setCurrentUser={ setCurrentUser } carList={ carList } setCarList={ setCarList }/> }/>
           <Route exact path="/cars/new" element={ <CarForm carList={ carList } setCarList={ setCarList }/> }/>
-          <Route exact path="/cars/mycars" element={ <ReviewerCars currentUser={ currentUser }/> }/>
+          <Route exact path="/cars/mycars" element={ <ReviewerCars currentUser={ currentUser } carList={carList} setCarList={setCarList} /> }/>
       </Routes>
     </div>
   );

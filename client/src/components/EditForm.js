@@ -24,7 +24,7 @@ function EditForm({ editCommentInput, setEditCommentInput, handleUpdateReview })
  
     return (
         <div className='review-form-section' >
-            <form noValidate autoComplete="off" className='review-form' onSubmit={( e ) => handleUpdateSubmit( e )}>
+            <form noValidate autoComplete="off" className='review-form' onSubmit={(e) => handleUpdateSubmit(e)}>
                 <input
                     placeholder='Edit Review'
                     value={ comments }

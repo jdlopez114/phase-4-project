@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function PageCard({ displayData }) {
+function PageCard({ car }) {
 
-  const { id, make, model, img_url } = displayData
+  const { id, make, model, img_url } = car
   
   return (
     <Link to={ `/cars/${ id }` }>

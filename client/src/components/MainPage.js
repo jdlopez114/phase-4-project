@@ -1,12 +1,12 @@
 import React from 'react';
 import PageCard from "./PageCard";
 
-function MainPage({ displayData }) {
+function MainPage({ carList }) {
 
   return (
-    <div key={ displayData.id }>
-        { displayData.map( car => {
-            return <PageCard key={ car.id } displayData={ car }/>
+    <div key={ carList.id }>
+        { carList.map( car => {
+            return <PageCard key={ car.id } car={ car }/>
         })}    
     </div>
   )

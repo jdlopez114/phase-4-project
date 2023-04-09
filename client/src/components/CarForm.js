@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CarForm({ carList, setCarList }) {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [ error, setError ] = useState([])
   const [ formData, setFormData ] = useState ({
     "make" : "",
