@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 function LoginForm({ setCurrentUser }) {
 
-  const [ username, setUsername ] = useState( "" );
-  const [ password, setPassword ] = useState( "" );   
+  const [ username, setUsername ] = useState( "" )
+  const [ password, setPassword ] = useState( "" )
   const [error, setError] = useState([])
   const navigate = useNavigate();
 

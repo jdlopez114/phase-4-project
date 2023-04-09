@@ -2,19 +2,11 @@ import React  from "react";
 
 function ReviewerCars({ currentUser, carList }) {
 
-    console.log("ReviewerCars-> carList:", carList)
-
-    // const { cars } = currentUser
-    // const uniqueCars = cars.filter(
-    //     (obj, index, self) => index === self.findIndex((t) => t.make === obj.make && t.model === obj.model));
-
-    function hasUserReview(car, id) {
-        return car.reviews.some((review) => review.user_id === currentUser.id);
+    function hasUserReview(car) {
+        return car.reviews.some((review) => review.user_id === currentUser.id)
       }
 
     const userReviewedCars = carList.filter((car) => hasUserReview(car, currentUser.id));
-
-    console.log("userReviewedCars:", userReviewedCars)
            
   return (
         <div> 

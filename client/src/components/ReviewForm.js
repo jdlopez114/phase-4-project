@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 function ReviewForm({ car, carList, setCarList, currentUser, setCurrentUser }) {
 
-    console.log("ReviewForm-> currentUser:", currentUser)
-
     const navigate = useNavigate()
     const [ error, setError ] = useState([])
     const [ commentInput, setCommentInput ] = useState ("")
@@ -15,6 +13,7 @@ function ReviewForm({ car, carList, setCarList, currentUser, setCurrentUser }) {
 
     function handleSubmit( e ){
         e.preventDefault()
+        setError([])
         fetch(`/reviews`, {
           method: "POST",
           headers: { 
@@ -24,7 +23,7 @@ function ReviewForm({ car, carList, setCarList, currentUser, setCurrentUser }) {
             body: JSON.stringify( newReview )
         }).then( r => { 
             if ( r.ok ) {
-                r.json().then( data => addReview(data))
+                r.json().then( data => addReview( data ))
                 .then(() => {
                     navigate(`/cars/${ car.id }`)
                     setCommentInput("")
@@ -47,7 +46,7 @@ function ReviewForm({ car, carList, setCarList, currentUser, setCurrentUser }) {
 
     return (
         <div className='review-form-section' >
-            <form noValidate autoComplete="off" className='review-form' onSubmit={ (e) => handleSubmit(e) } >
+            <form noValidate autoComplete="off" className='review-form' onSubmit={ (e) => handleSubmit(e) }>
                 <input
                     placeholder='Add a review'
                     value={ commentInput }
@@ -67,7 +66,7 @@ function ReviewForm({ car, carList, setCarList, currentUser, setCurrentUser }) {
                 </div>
             </form>
         </div>
-    );
+    )
 }
 
 export default ReviewForm;

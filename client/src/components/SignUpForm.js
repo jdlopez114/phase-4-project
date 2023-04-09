@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 
 function SignUpForm({ setCurrentUser }) {
 
-    const [ username, setUsername ] = useState( "" );
-    const [ password, setPassword ] = useState( "" );
-    const [ confirmPassword, setConfirmPassword ] = useState( "" );   
+    const [ username, setUsername ] = useState( "" )
+    const [ password, setPassword ] = useState( "" )
+    const [ confirmPassword, setConfirmPassword ] = useState( "" )  
     const [ error, setError ] = useState([])
     const navigate = useNavigate();
 
     function handleSubmit( e ) {
-        e.preventDefault();
+        e.preventDefault()
         setError([])
         if(password !== confirmPassword){
             setError("PASSWORD MUST MATCH")
@@ -35,7 +35,7 @@ function SignUpForm({ setCurrentUser }) {
 
     return (
         <div className='form-section' >
-            <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit } >
+            <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit }>
                 <input
                     className='sign-up-form-input'
                     placeholder='Username'

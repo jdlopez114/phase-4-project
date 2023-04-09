@@ -5,10 +5,8 @@ import ReviewRow from './ReviewRow';
 
 function CarPage({ currentUser, setCurrentUser, carList, setCarList }) {     
 
-  const { id } = useParams();
-  const car = carList.find(c => c.id === parseInt(id));
-
-  // console.log("CarPage -> car:", car)
+  const { id } = useParams()
+  const car = carList.find(c => c.id === parseInt(id))
 
   function handleDeleteReview( id ){
       fetch(`/reviews/${ id }`, {

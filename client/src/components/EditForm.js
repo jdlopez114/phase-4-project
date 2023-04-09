@@ -2,8 +2,6 @@ import React from 'react';
 
 function EditForm({ editCommentInput, setEditCommentInput, handleUpdateReview }) {
 
-    console.log("EditForm-> editCommentInput:", editCommentInput)
-
     const { comments } = editCommentInput
 
     function handleUpdateSubmit( e ){

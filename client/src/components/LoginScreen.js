@@ -4,7 +4,7 @@ import SignUpForm from "./SignUpForm";
 
 function LoginScreen({ setCurrentUser }) {
 
-  const [ showSignUp, setShowSignUp ] = useState( true );
+  const [ showSignUp, setShowSignUp ] = useState( true )
 
   return (
     <div> 
@@ -25,7 +25,7 @@ function LoginScreen({ setCurrentUser }) {
           <br/> 
           <h2>Don't have an account? Sign up now!</h2>
             <SignUpForm setCurrentUser={ setCurrentUser } /> 
-            <button className="form-buttons" onClick={ () => setShowSignUp(true) }>
+            <button className="form-buttons" onClick={ () => setShowSignUp( true ) }>
             Back to Login
             </button>
           </>

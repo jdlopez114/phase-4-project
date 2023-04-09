@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function CarForm({ carList, setCarList }) {
+function CarForm({ setCarList }) {
 
   const navigate = useNavigate()
   const [ error, setError ] = useState([])
-  const [ formData, setFormData ] = useState ({
-    "make" : "",
-    "model" : "",
-    "year" : "",
-    "img_url" : "" 
-  })
 
-  function handleAddCar( newCar ){
+  const [ makeInput, setMakeInput ] = useState ("")
+  const [ modelInput, setModelInput ] = useState ("")
+  const [ yearInput, setYearInput ] = useState ("")
+  const [ img_urlInput, setImg_urlInput ] = useState ("")
+
+  const newCar = {
+    make : makeInput,
+    model : modelInput,
+    year : yearInput,
+    img_url : img_urlInput
+  }
+
+  function handleSubmit( e ){
+    e.preventDefault()
+    setError([])
     fetch(`/cars`, {
       method: "POST",
       headers: {
@@ -20,71 +28,56 @@ function CarForm({ carList, setCarList }) {
         'Accept': 'application/json'
       }, 
         body: JSON.stringify( newCar )
-    })
-    .then( r => {
+    }).then( r => {
       if ( r.ok ){
         r.json().then( data => addCar( data ))
-        .then(() => navigate(`/cars/`))
+        .then(() => {
+          navigate(`/cars/`)
+          setMakeInput("")
+          setModelInput("")
+          setYearInput("")
+          setImg_urlInput("")
+        })
       } else {
         r.json().then(( err ) => setError( err.errors.join() ))
       }
     })
   }
-
+   
   function addCar( car ){
-    const updatedSet = { ...carList, car }
-    setCarList( carList.map(c => c.id === updatedSet.id ? updatedSet : c ))
+    setCarList( prevList => [...prevList, car] )
   }
 
-  function handleFormSubmit( e ){
-    e.preventDefault()
-    setError([])
-    handleAddCar( formData )
-    setFormData({
-      "make" : "",
-      "model" : "",
-      "year" : "",
-      "img_url" : ""    
-    })
-  }
-
-  function handleChange(e){
-    setFormData({
-        ...formData, 
-        [ e.target.name ] : e.target.value
-    })
-  }
-    
   return (
     <div className='car-form-section' >
-      <form noValidate autoComplete="off" className='review-form' onSubmit={ handleFormSubmit } >
+      <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit }>
         <input
             className='form-input'
             placeholder='Make'
             autoComplete="off"
-            value={ formData.make }
-            onChange={ handleChange }
+            value={ makeInput }
+            onChange={ (e) => setMakeInput(e.target.value) }
             name='make'
         />
           <input
             className='form-input'
             placeholder='Model'
-            value={ formData.model }
-            onChange={ handleChange }
+            value={ modelInput }
+            onChange={ (e) => setModelInput(e.target.value) }
             name='model'
         />
           <input
             className='form-input'
             placeholder='Year'
-            value={ formData.year }
-            onChange={ handleChange }
+            value={ yearInput }
+            onChange={ (e) => setYearInput(e.target.value) }
             name='year'
         />
           <input
             className='form-input'
             placeholder='Image Url'
-            value={ formData.img_url }
-            onChange={ handleChange }
+            value={ img_urlInput }
+            onChange={ (e) => setImg_urlInput(e.target.value) }
             name='img_url'
         />
         <div >
@@ -102,4 +95,4 @@ function CarForm({ carList, setCarList }) {
   )
 }
 
-export default CarForm
+export default CarForm;

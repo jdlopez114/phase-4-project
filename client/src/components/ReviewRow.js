@@ -14,7 +14,7 @@ const ReviewRow = ({ currentUser, review, handleDeleteReview, handleUpdateReview
     return <EditForm 
               handleUpdateReview={ handleUpdateReview } 
               editCommentInput={ editCommentInput } 
-              setEditCommentInput={ setEditCommentInput }/>;
+              setEditCommentInput={ setEditCommentInput }/>
   }
 
   return (

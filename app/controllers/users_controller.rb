@@ -6,13 +6,6 @@ class UsersController < ApplicationController
         render json: users 
     end
 
-    # def top_users
-    #     #psuedo code here
-    #     @users = User.top_4_users
-    #     # byebug
-    #     render json: @users
-    # end
-
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id

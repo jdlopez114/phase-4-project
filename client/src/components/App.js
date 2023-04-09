@@ -9,7 +9,7 @@ import ReviewerCars from "./ReviewerCars";
 
 function App() {
 
-  const [ currentUser, setCurrentUser ] = useState(null);
+  const [ currentUser, setCurrentUser ] = useState(null)
   const [ carList, setCarList] = useState([])
  
   useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
     .catch(error => ( console.log( error )) );
   }, []);
 
-  if ( !currentUser ) return <LoginScreen setCurrentUser={ setCurrentUser } />;
+  if ( !currentUser ) return <LoginScreen setCurrentUser={ setCurrentUser } />
 
   return (
     <div className="review-app">
@@ -38,11 +38,11 @@ function App() {
           <Route exact path="/" element={ <MainPage carList={ carList }/> }/>
           <Route exact path="/cars/" element={ <MainPage carList={ carList } currentUser={ currentUser }/> }/>
           <Route exact path="/cars/:id" element={ <CarPage currentUser={ currentUser } setCurrentUser={ setCurrentUser } carList={ carList } setCarList={ setCarList }/> }/>
-          <Route exact path="/cars/new" element={ <CarForm carList={ carList } setCarList={ setCarList }/> }/>
+          <Route exact path="/cars/new" element={ <CarForm setCarList={ setCarList }/> }/>
           <Route exact path="/cars/mycars" element={ <ReviewerCars currentUser={ currentUser } carList={carList} setCarList={setCarList} /> }/>
       </Routes>
     </div>
-  );
+  )
 }
 
 export default App;
