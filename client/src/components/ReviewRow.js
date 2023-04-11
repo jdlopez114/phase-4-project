@@ -7,7 +7,6 @@ import EditForm from './EditForm';
 const ReviewRow = ({ review, handleDeleteReview, handleUpdateReview }) => {
 
   const { currentUser } = useContext(UserContext)
-
   const [ editCommentInput, setEditCommentInput ]  = useState({ 
     "comments" : review.comments,
     "car_id" : review.car_id

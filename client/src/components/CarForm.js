@@ -1,14 +1,12 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from './context/UserContext';
 import { useNavigate } from 'react-router-dom';
-import Header from "./Header";
 
 function CarForm() {
 
   const { setCarList } = useContext(UserContext)
   const navigate = useNavigate()
   const [ error, setError ] = useState([])
-
   const [ makeInput, setMakeInput ] = useState ("")
   const [ modelInput, setModelInput ] = useState ("")
   const [ yearInput, setYearInput ] = useState ("")
@@ -27,8 +25,7 @@ function CarForm() {
     fetch(`/cars`, {
       method: "POST",
       headers: {
-        "Content-Type" : "application/json",
-        'Accept': 'application/json'
+        "Content-Type" : "application/json"
       }, 
         body: JSON.stringify( newCar )
     }).then( r => {
@@ -52,9 +49,8 @@ function CarForm() {
   }
 
   return (
-
     <> 
-      <Header/>
+      <h1 className="page-headers"><strong>Submit a Car!</strong></h1>
       <div className='car-form-section' >
         <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit }>
           <input

@@ -20,9 +20,8 @@ function UserProvider({ children }) {
     .then( data => {
       setCarList( data )
     })
-    .catch(error => ( console.log( error )) );
+    .catch(error => ( console.log( error )) )
   }, []);
-
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser, carList, setCarList }}>

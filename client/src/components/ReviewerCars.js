@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { UserContext } from './context/UserContext';
-import Header from "./Header";
 
 function ReviewerCars() {
 
@@ -12,11 +11,10 @@ function ReviewerCars() {
 
     const userReviewedCars = carList.filter((car) => hasUserReview(car, currentUser.id));
            
-  return (
+    return (
         <> 
-        <Header/>
             <div> 
-                <h2 className="my-reviewed-cars"> MY REVIEWED CARS</h2>
+                <h2 className="page-headers"> MY REVIEWED CARS</h2>
                 <br/>
                 <br/>
                 <div className='car-list'> 

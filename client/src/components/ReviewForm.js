@@ -17,8 +17,7 @@ function ReviewForm({ car, carList, setCarList, currentUser, setCurrentUser }) {
         fetch(`/reviews`, {
           method: "POST",
           headers: { 
-            "Content-Type" : "application/json",
-            'Accept': 'application/json'
+            "Content-Type" : "application/json"
           }, 
             body: JSON.stringify( newReview )
         }).then( r => { 
@@ -35,11 +34,9 @@ function ReviewForm({ car, carList, setCarList, currentUser, setCurrentUser }) {
     }    
 
     function addReview( review ){
-
         const updatedCar = { ...car, reviews: [ review, ...car.reviews ] }
         const updatedCars = currentUser.cars.map( c => c.id === updatedCar.id ? updatedCar : c )
         const updatedUser = { ...currentUser, cars: updatedCars }
-      
         setCurrentUser(updatedUser);
         setCarList( carList.map( c => c.id === updatedCar.id ? updatedCar : c ))
     }

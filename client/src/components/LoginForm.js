@@ -12,16 +12,17 @@ function LoginForm() {
 
   function handleSubmit( e ) {
       e.preventDefault();
-        setError([])
+      setError([])
       fetch("/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          'Accept': 'application/json'
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ username, password }),
-      })
-        .then( r => {
+        body: JSON.stringify({ 
+          username: username,
+          password: password
+        })
+      }).then( r => {
           if ( r.ok ) {
               r.json().then( user => setCurrentUser( user ))
               .then(() => navigate(`/cars/`))

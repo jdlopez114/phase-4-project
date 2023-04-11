@@ -6,20 +6,23 @@ import CarPage from "./CarPage";
 import CarForm from "./CarForm";
 import LoginScreen from "./LoginScreen";
 import ReviewerCars from "./ReviewerCars";
+import NavBar from "./NavBar";
 
 function App() {
 
   return (
     <div className="review-app">
-      <UserProvider> 
+      <UserProvider > 
+        <NavBar />
         <Routes>
-            <Route exact path="/" element={ <LoginScreen /> }/>
+            <Route exact path="/" element={ <MainPage /> }/>
+            <Route exact path="/login" element={ <LoginScreen /> }/>
             <Route exact path="/cars/" element={ <MainPage /> }/>
             <Route exact path="/cars/:id" element={ <CarPage /> }/>
             <Route exact path="/cars/new" element={ <CarForm /> }/>
             <Route exact path="/cars/mycars" element={ <ReviewerCars /> }/>
         </Routes>
-      </UserProvider>
+      </UserProvider >
     </div>
   )
 }

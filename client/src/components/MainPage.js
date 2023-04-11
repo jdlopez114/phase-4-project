@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
 import { UserContext } from './context/UserContext';
 import PageCard from "./PageCard";
-import Header from "./Header";
+import LoginScreen from "./LoginScreen";
 
 function MainPage() {
 
-  const { carList} = useContext(UserContext)
+  const { currentUser, carList } = useContext(UserContext)
+
+  if ( !currentUser || currentUser.error ) return <LoginScreen />
 
   return (
     <> 
-    <Header/>
+      <h1 className="page-headers"><strong>Welcome { currentUser.username }</strong></h1>
       <div key={ carList.id }>
           { carList.map( car => {
               return <PageCard key={ car.id } car={ car }/>

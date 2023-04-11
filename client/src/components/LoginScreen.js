@@ -8,7 +8,6 @@ function LoginScreen() {
 
   return (
     <div> 
-      <h2 className="login-nav">TEST DRIVE LOGIN </h2>
       <div className="login-form">
         { showSignUp ? (
           <> 

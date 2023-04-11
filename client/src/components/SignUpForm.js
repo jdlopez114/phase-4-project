@@ -14,25 +14,27 @@ function SignUpForm() {
     function handleSubmit( e ) {
         e.preventDefault()
         setError([])
-        if(password !== confirmPassword){
-            setError("PASSWORD MUST MATCH")
-        } else {
-            fetch("/signup", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  'Accept': 'application/json'
-                },
-                body: JSON.stringify({ username, password }),
-            }).then( r => {
-                if ( r.ok ) {
-                    r.json().then( user => setCurrentUser( user ))
-                    .then(() => navigate(`/cars`))
-                } else {
-                    r.json().then((err) => setError(err.errors.join()))
-                }
-            })
-        }
+        fetch("/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ 
+                username: username,
+                password: password,
+                password_confirmation: confirmPassword
+            }),
+        }).then( r => {
+            if ( r.ok ) {
+                r.json().then( user => setCurrentUser( user ))
+                .then(() => navigate(`/cars`))
+            } else {
+                setCurrentUser("")
+                setPassword("")
+                setConfirmPassword("")
+                r.json().then((err) => setError(err.errors))
+            }
+        })
     }
 
     return (
@@ -40,27 +42,28 @@ function SignUpForm() {
             <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit }>
                 <input
                     className='sign-up-form-input'
+                    type='text'
+                    name='user_name'
                     placeholder='Username'
                     autoComplete="off"
                     value={ username }
                     onChange={(e) => setUsername( e.target.value )}
-                    name='user_name'
                 />
                 <input
-                    type="password"
                     className='sign-up-form-input'
+                    type="password"
+                    name='password'
                     placeholder='Password'
                     value={ password }
                     onChange={(e) => setPassword( e.target.value )}
-                    name='password'
                 />
                 <input
-                    type="password"
                     className='sign-up-form-input'
+                    type="password"
+                    name='confirm_password'
                     placeholder='Confirm Password'
                     value={ confirmPassword }
                     onChange={(e) => setConfirmPassword( e.target.value )}
-                    name='confirm_password'
                 />
                 <div >
                     <button className="form-buttons">Create Account!</button>

@@ -3,7 +3,6 @@ import { UserContext } from './context/UserContext';
 import { useParams } from 'react-router-dom';
 import ReviewForm from './ReviewForm';
 import ReviewRow from './ReviewRow';
-import Header from "./Header";
 
 function CarPage() {    
   
@@ -48,7 +47,6 @@ function CarPage() {
 
     return(
       <> 
-        <Header/>
           <div className='car-review-page'> 
               <div className='single-car-card' >
                   <img className="car-img" src={ car.img_url} alt="Not found."/>
