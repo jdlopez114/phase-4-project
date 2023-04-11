@@ -6,11 +6,6 @@ class ReviewsController < ApplicationController
     render json: reviews, status: :ok
   end
 
-  def show
-    review = Review.uniq.find( params[:id] )
-    render json: review, status: :ok
-  end
-
   def create
     review = @current_user.reviews.create( review_params )
     render json: review, status: :created
