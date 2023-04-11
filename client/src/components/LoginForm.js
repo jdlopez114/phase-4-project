@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
+import { UserContext } from './context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
-function LoginForm({ setCurrentUser }) {
+function LoginForm() {
 
+  const { setCurrentUser } = useContext(UserContext)
   const [ username, setUsername ] = useState( "" )
   const [ password, setPassword ] = useState( "" )
-  const [error, setError] = useState([])
+  const [ error, setError ] = useState([])
   const navigate = useNavigate();
 
   function handleSubmit( e ) {

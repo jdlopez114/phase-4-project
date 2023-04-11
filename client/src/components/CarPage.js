@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { UserContext } from './context/UserContext';
 import { useParams } from 'react-router-dom';
 import ReviewForm from './ReviewForm';
 import ReviewRow from './ReviewRow';
+import Header from "./Header";
 
-function CarPage({ currentUser, setCurrentUser, carList, setCarList }) {     
-
+function CarPage() {    
+  
+  const { currentUser, setCurrentUser, carList, setCarList } = useContext(UserContext);
   const { id } = useParams()
   const car = carList.find(c => c.id === parseInt(id))
 
@@ -44,30 +47,32 @@ function CarPage({ currentUser, setCurrentUser, carList, setCarList }) {
     }
 
     return(
-        <div className='car-review-page'> 
-            <div className='single-car-card' >
-                <img className="car-img" src={ car.img_url} alt="Not found."/>
-                <h3> { car.year } { car.make } { car.model }</h3>
-                <h3>{ car.color }</h3>
-                <h3>{ car.drive }</h3>
-            </div>
-            <div className='review-section' > 
-            <ReviewForm 
-                currentUser={ currentUser }  
-                setCurrentUser={ setCurrentUser } 
-                car={ car } carList={ carList } 
-                setCarList={ setCarList }
-            /> 
-              { car.reviews.map(rev => { 
-                  return <ReviewRow 
-                            key={ rev.id } 
-                            review={ rev }
-                            handleDeleteReview={ handleDeleteReview } 
-                            handleUpdateReview={ handleUpdateReview } 
-                            currentUser={ currentUser }
-                        />}) }
-            </div>
-        </div>
+      <> 
+        <Header/>
+          <div className='car-review-page'> 
+              <div className='single-car-card' >
+                  <img className="car-img" src={ car.img_url} alt="Not found."/>
+                  <h3> { car.year } { car.make } { car.model }</h3>
+                  <h3>{ car.color }</h3>
+                  <h3>{ car.drive }</h3>
+              </div>
+              <div className='review-section' > 
+              <ReviewForm 
+                  currentUser={ currentUser }  
+                  setCurrentUser={ setCurrentUser } 
+                  car={ car } carList={ carList } 
+                  setCarList={ setCarList }
+              /> 
+                { car.reviews.map(rev => { 
+                    return <ReviewRow 
+                              key={ rev.id } 
+                              review={ rev }
+                              handleDeleteReview={ handleDeleteReview } 
+                              handleUpdateReview={ handleUpdateReview } 
+                          />}) }
+              </div>
+          </div>
+      </>
     )
 }   
 

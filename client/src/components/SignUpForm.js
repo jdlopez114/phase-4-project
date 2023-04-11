@@ -1,8 +1,10 @@
- import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
+import { UserContext } from './context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
-function SignUpForm({ setCurrentUser }) {
+function SignUpForm() {
 
+    const { setCurrentUser } = useContext(UserContext);
     const [ username, setUsername ] = useState( "" )
     const [ password, setPassword ] = useState( "" )
     const [ confirmPassword, setConfirmPassword ] = useState( "" )  

@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
+import { UserContext } from './context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import Header from "./Header";
 
-function CarForm({ setCarList }) {
+function CarForm() {
 
+  const { setCarList } = useContext(UserContext)
   const navigate = useNavigate()
   const [ error, setError ] = useState([])
 
@@ -49,49 +52,53 @@ function CarForm({ setCarList }) {
   }
 
   return (
-    <div className='car-form-section' >
-      <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit }>
-        <input
-            className='form-input'
-            placeholder='Make'
-            autoComplete="off"
-            value={ makeInput }
-            onChange={ (e) => setMakeInput(e.target.value) }
-            name='make'
-        />
+
+    <> 
+      <Header/>
+      <div className='car-form-section' >
+        <form noValidate autoComplete="off" className='review-form' onSubmit={ handleSubmit }>
           <input
-            className='form-input'
-            placeholder='Model'
-            value={ modelInput }
-            onChange={ (e) => setModelInput(e.target.value) }
-            name='model'
-        />
-          <input
-            className='form-input'
-            placeholder='Year'
-            value={ yearInput }
-            onChange={ (e) => setYearInput(e.target.value) }
-            name='year'
-        />
-          <input
-            className='form-input'
-            placeholder='Image Url'
-            value={ img_urlInput }
-            onChange={ (e) => setImg_urlInput(e.target.value) }
-            name='img_url'
-        />
-        <div >
-            <button 
-            className="form-buttons"
-            >
-            Add Car
-            </button>
-        </div>
-        <div>
-          { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }                
-        </div>
-      </form>
-    </div>
+              className='form-input'
+              placeholder='Make'
+              autoComplete="off"
+              value={ makeInput }
+              onChange={ (e) => setMakeInput(e.target.value) }
+              name='make'
+          />
+            <input
+              className='form-input'
+              placeholder='Model'
+              value={ modelInput }
+              onChange={ (e) => setModelInput(e.target.value) }
+              name='model'
+          />
+            <input
+              className='form-input'
+              placeholder='Year'
+              value={ yearInput }
+              onChange={ (e) => setYearInput(e.target.value) }
+              name='year'
+          />
+            <input
+              className='form-input'
+              placeholder='Image Url'
+              value={ img_urlInput }
+              onChange={ (e) => setImg_urlInput(e.target.value) }
+              name='img_url'
+          />
+          <div >
+              <button 
+              className="form-buttons"
+              >
+              Add Car
+              </button>
+          </div>
+          <div>
+            { error ? <div className="errors-container"><span className="error-message">{ error }</span></div> : null }                
+          </div>
+        </form>
+      </div>
+    </>
   )
 }
 

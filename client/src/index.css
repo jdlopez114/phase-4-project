@@ -191,6 +191,13 @@ code {
   background: #cfd8dc; 
 }
 
+.login-nav {
+  display: flex; 
+  justify-content: space-between; 
+  padding: 1rem 2rem; 
+  background: #cfd8dc; 
+}
+
 .navbar ul {
   display: flex; 
   list-style: none; 

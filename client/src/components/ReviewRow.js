@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
+import { UserContext } from './context/UserContext';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 import EditForm from './EditForm';
 
-const ReviewRow = ({ currentUser, review, handleDeleteReview, handleUpdateReview }) => {
+const ReviewRow = ({ review, handleDeleteReview, handleUpdateReview }) => {
+
+  const { currentUser } = useContext(UserContext)
 
   const [ editCommentInput, setEditCommentInput ]  = useState({ 
     "comments" : review.comments,
