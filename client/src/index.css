@@ -186,7 +186,7 @@ code {
 
 .navbar {
   display: flex; 
-  justify-content: space-between; 
+  justify-content: right; 
   padding: 1rem 2rem; 
   background: #cfd8dc; 
 }
